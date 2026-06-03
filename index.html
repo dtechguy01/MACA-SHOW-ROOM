@@ -22,20 +22,29 @@
     </script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- AOS Animation Engine Stylesheet -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700;800&display=swap');
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #060913;
             background-image: 
                 radial-gradient(at 0% 0%, rgba(0, 102, 255, 0.12) 0px, transparent 50%),
                 radial-gradient(at 100% 100%, rgba(0, 242, 254, 0.08) 0px, transparent 50%);
+            overflow-x: hidden;
         }
         .glass-card {
             background: rgba(11, 17, 32, 0.6);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
             border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 242, 254, 0.2);
+            box-shadow: 0 20px 40px -15px rgba(0, 242, 254, 0.1);
         }
         .text-gradient {
             background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%);
@@ -59,42 +68,49 @@
 
     <!-- Hero Section -->
     <section id="about" class="pt-36 pb-24 px-4 max-w-4xl mx-auto text-center flex flex-col items-center">
-        <!-- Animated Decorative Element -->
-        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card text-xs text-cyan-400 mb-6 uppercase tracking-widest font-mono border border-cyan-500/20">
+        <!-- Animated Pulse Tag -->
+        <div data-aos="fade-down" data-aos-duration="1000" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card text-xs text-cyan-400 mb-6 uppercase tracking-widest font-mono border border-cyan-500/20">
             <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span> Open For Global Roles
         </div>
         
-        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-3 uppercase leading-tight">
+        <h1 data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200" class="text-4xl md:text-6xl font-extrabold tracking-tight mb-3 uppercase leading-tight">
             BEULAH IREMIDE ADEOYE <span class="text-gradient">(MACA)</span>
         </h1>
-        <p class="text-cyan-400 font-bold tracking-widest text-xs md:text-sm mb-8 uppercase bg-cyan-950/30 px-4 py-1 rounded-md border border-cyan-500/10">
+        <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" class="text-cyan-400 font-bold tracking-widest text-xs md:text-sm mb-8 uppercase bg-cyan-950/30 px-4 py-1 rounded-md border border-cyan-500/10">
             Full-Stack Developer &bull; Data Scientist & Analyst &bull; Expert Graphic Designer
         </p>
-        <p class="text-gray-400 text-base md:text-xl max-w-3xl leading-relaxed mb-10 font-light">
+        <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600" class="text-gray-400 text-base md:text-xl max-w-3xl leading-relaxed mb-10 font-light">
             Bridging the gap between high-performance code, architectural data insights, and premium visual design. I engineer immersive digital experiences and robust full-stack systems with a sharp, aesthetic eye for detail.
         </p>
         
         <!-- Action Handles -->
-        <div class="flex flex-wrap justify-center gap-4">
-            <a href="https://github.com/dtechguy01" target="_blank" class="flex items-center gap-2 px-5 py-2.5 glass-card rounded-xl hover:text-cyan-400 hover:border-cyan-500/30 transition-all transform hover:-translate-y-0.5">
-                <i data-lucide="github" class="w-4 h-4"></i> <span class="text-sm font-medium">GitHub</span>
+        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800" class="flex flex-wrap justify-center gap-4 mb-8">
+            <a href="https://github.com/dtechguy01" target="_blank" class="flex items-center gap-2 px-5 py-2.5 glass-card rounded-xl hover:text-cyan-400">
+                <i data-lucide="brand-github" class="w-4 h-4"></i> <span class="text-sm font-medium">GitHub</span>
             </a>
-            <a href="https://x.com/dtechguy01" target="_blank" class="flex items-center gap-2 px-5 py-2.5 glass-card rounded-xl hover:text-cyan-400 hover:border-cyan-500/30 transition-all transform hover:-translate-y-0.5">
-                <i data-lucide="twitter" class="w-4 h-4"></i> <span class="text-sm font-medium">Twitter / X</span>
+            <a href="https://x.com/dtechguy01" target="_blank" class="flex items-center gap-2 px-5 py-2.5 glass-card rounded-xl hover:text-cyan-400">
+                <i data-lucide="brand-x" class="w-4 h-4"></i> <span class="text-sm font-medium">Twitter / X</span>
             </a>
-            <a href="https://www.tiktok.com/@d_techguy01?_r=1&_t=ZS-96t9EM04Eye" target="_blank" class="flex items-center gap-2 px-5 py-2.5 glass-card rounded-xl hover:text-cyan-400 hover:border-cyan-500/30 transition-all transform hover:-translate-y-0.5">
+            <a href="https://www.tiktok.com/@d_techguy01?_r=1&_t=ZS-96t9EM04Eye" target="_blank" class="flex items-center gap-2 px-5 py-2.5 glass-card rounded-xl hover:text-cyan-400">
                 <i data-lucide="video" class="w-4 h-4"></i> <span class="text-sm font-medium">TikTok Showcase</span>
+            </a>
+        </div>
+
+        <!-- Premium Interactive Download CV Button -->
+        <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="900" class="w-full max-w-xs">
+            <a href="my-cv.pdf" download="Beulah_Adeoye_CV.pdf" class="flex items-center justify-center gap-3 w-full px-6 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl text-black font-extrabold text-sm hover:opacity-90 shadow-xl shadow-cyan-500/20 tracking-wider uppercase transition-all transform hover:-translate-y-1">
+                <i data-lucide="download" class="w-5 h-5 stroke-[2.5]"></i> <span>Download My CV</span>
             </a>
         </div>
     </section>
 
     <!-- Core Skills Block -->
     <section id="skills" class="py-16 px-4 max-w-5xl mx-auto border-t border-gray-900">
-        <h2 class="text-xl md:text-2xl font-black mb-12 text-center tracking-widest uppercase">Expertise Spectrum</h2>
+        <h2 data-aos="fade-up" class="text-xl md:text-2xl font-black mb-12 text-center tracking-widest uppercase">Expertise Spectrum</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             <!-- Dev Card -->
-            <div class="glass-card p-6 rounded-2xl relative overflow-hidden group">
+            <div data-aos="fade-up" data-aos-delay="100" class="glass-card p-6 rounded-2xl relative overflow-hidden group">
                 <div class="absolute top-0 right-0 w-24 h-24 bg-blue-600/10 rounded-full blur-2xl group-hover:bg-blue-600/20 transition-all"></div>
                 <div class="flex items-center gap-3 mb-5">
                     <div class="p-2 bg-blue-500/10 rounded-lg text-blue-400"><i data-lucide="code" class="w-5 h-5"></i></div>
@@ -110,7 +126,7 @@
             </div>
 
             <!-- Analytics Card -->
-            <div class="glass-card p-6 rounded-2xl relative overflow-hidden group">
+            <div data-aos="fade-up" data-aos-delay="200" class="glass-card p-6 rounded-2xl relative overflow-hidden group">
                 <div class="absolute top-0 right-0 w-24 h-24 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all"></div>
                 <div class="flex items-center gap-3 mb-5">
                     <div class="p-2 bg-cyan-500/10 rounded-lg text-cyan-400"><i data-lucide="binary" class="w-5 h-5"></i></div>
@@ -126,7 +142,7 @@
             </div>
 
             <!-- UI UX & Design Card -->
-            <div class="glass-card p-6 rounded-2xl relative overflow-hidden group">
+            <div data-aos="fade-up" data-aos-delay="300" class="glass-card p-6 rounded-2xl relative overflow-hidden group">
                 <div class="absolute top-0 right-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all"></div>
                 <div class="flex items-center gap-3 mb-5">
                     <div class="p-2 bg-purple-500/10 rounded-lg text-purple-400"><i data-lucide="palette" class="w-5 h-5"></i></div>
@@ -146,7 +162,7 @@
 
     <!-- Work Showroom Section -->
     <section id="showroom" class="py-16 px-4 max-w-5xl mx-auto border-t border-gray-900">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12" data-aos="fade-up">
             <h2 class="text-2xl font-black tracking-widest uppercase mb-3">Production & Branding Showroom</h2>
             <p class="text-gray-500 text-sm max-w-md mx-auto">A live gallery showcasing data systems, full-stack builds, and high-fidelity brand design layouts.</p>
         </div>
@@ -154,10 +170,10 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             
             <!-- Showroom Item 1: Elora Grills n Fries -->
-            <div class="glass-card rounded-2xl overflow-hidden group flex flex-col justify-between">
-                <div class="p-4 bg-gray-950/40 relative">
-                    <div class="aspect-[4/3] w-full rounded-xl overflow-hidden border border-gray-800 group-hover:border-amber-500/30 transition-all">
-                        <img src="ELORA GRILLS n FRIES _202605.png" alt="Elora Grills Showcase" class="w-full h-full object-cover rounded-xl" />
+            <div data-aos="fade-right" class="glass-card rounded-2xl overflow-hidden group flex flex-col justify-between">
+                <div class="p-4 bg-gray-950/40 relative overflow-hidden">
+                    <div class="aspect-[4/3] w-full rounded-xl overflow-hidden border border-gray-800 group-hover:scale-[1.02] transition-transform duration-500">
+                        <img src="elora-grills.png" alt="Elora Grills Showcase" class="w-full h-full object-cover rounded-xl" />
                     </div>
                 </div>
                 <div class="p-6 pt-2">
@@ -175,9 +191,9 @@
             </div>
 
             <!-- Showroom Item 2: FlexiLearn -->
-            <div class="glass-card rounded-2xl overflow-hidden group flex flex-col justify-between">
+            <div data-aos="fade-left" class="glass-card rounded-2xl overflow-hidden group flex flex-col justify-between">
                 <div class="p-4 bg-gray-950/40">
-                    <div class="aspect-[4/3] w-full rounded-xl bg-gradient-to-br from-cyan-600/20 to-blue-600/20 border border-gray-800 flex flex-col items-center justify-center p-6 text-center group-hover:border-cyan-500/30 transition-all relative overflow-hidden">
+                    <div class="aspect-[4/3] w-full rounded-xl bg-gradient-to-br from-cyan-600/20 to-blue-600/20 border border-gray-800 flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
                         <i data-lucide="database" class="w-12 h-12 text-cyan-400 mb-2 group-hover:scale-110 transition-transform"></i>
                         <span class="font-bold text-gray-200 text-lg">FlexiLearn Portal</span>
                         <span class="text-xs text-gray-500 max-w-xs mt-1">Interactive Academic Content Server & Course Management Directory</span>
@@ -198,10 +214,10 @@
             </div>
 
             <!-- Showroom Item 3: The Coker Charity Foundation -->
-            <div class="glass-card rounded-2xl overflow-hidden group flex flex-col justify-between">
-                <div class="p-4 bg-gray-950/40 relative">
-                    <div class="aspect-[4/3] w-full rounded-xl overflow-hidden border border-gray-800 group-hover:border-pink-500/30 transition-all">
-                        <img src="The coker charity foundation_20.png" alt="Coker Charity UI" class="w-full h-full object-cover rounded-xl" />
+            <div data-aos="fade-right" class="glass-card rounded-2xl overflow-hidden group flex flex-col justify-between">
+                <div class="p-4 bg-gray-950/40 relative overflow-hidden">
+                    <div class="aspect-[4/3] w-full rounded-xl overflow-hidden border border-gray-800 group-hover:scale-[1.02] transition-transform duration-500">
+                        <img src="coker-charity.png" alt="Coker Charity UI" class="w-full h-full object-cover rounded-xl" />
                     </div>
                 </div>
                 <div class="p-6 pt-2">
@@ -219,9 +235,9 @@
             </div>
 
             <!-- Showroom Item 4: Joynest Gifts Sign Out Package -->
-            <div class="glass-card rounded-2xl overflow-hidden group flex flex-col justify-between">
+            <div data-aos="fade-left" class="glass-card rounded-2xl overflow-hidden group flex flex-col justify-between">
                 <div class="p-4 bg-gray-950/40 relative">
-                    <div class="aspect-[4/3] w-full rounded-xl bg-gradient-to-br from-yellow-600/20 to-amber-500/20 border border-gray-800 flex flex-col items-center justify-center p-6 text-center group-hover:border-yellow-500/30 transition-all relative overflow-hidden">
+                    <div class="aspect-[4/3] w-full rounded-xl bg-gradient-to-br from-yellow-600/20 to-amber-500/20 border border-gray-800 flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
                         <i data-lucide="gift" class="w-12 h-12 text-yellow-400 mb-2 group-hover:scale-110 transition-transform"></i>
                         <span class="font-bold text-gray-200 text-lg">Joynest Matrix Banner</span>
                         <span class="text-xs text-gray-500 max-w-xs mt-1">High-Fidelity Typography Systems & Commercial Packages Component Architecture</span>
@@ -246,19 +262,26 @@
 
     <!-- Contact Block -->
     <section id="contact" class="py-20 px-4 max-w-3xl mx-auto text-center border-t border-gray-900">
-        <h2 class="text-xl md:text-2xl font-black mb-4 tracking-widest uppercase">Initiate Workspace Link</h2>
-        <p class="text-gray-500 text-sm max-w-sm mx-auto mb-10">
-            Available for elite enterprise full-stack contract roles, deep learning workflows, and global high-fidelity branding design architectures.
+        <h2 data-aos="fade-up" class="text-xl md:text-2xl font-black mb-4 tracking-widest uppercase">Let's Build Something Great</h2>
+        <p data-aos="fade-up" data-aos-delay="100" class="text-gray-500 text-sm max-w-md mx-auto mb-10 leading-relaxed">
+            Open to collaborations, freelance projects, and global opportunities. Let's connect and create something remarkable together.
         </p>
         
-        <div class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-            <a href="mailto:beulahiremide@gmail.com" class="w-full glass-card p-4 rounded-xl flex items-center justify-center gap-3 hover:border-cyan-500/30 transition-colors group">
+        <div data-aos="zoom-in" data-aos-duration="800" class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl mx-auto">
+            <!-- Email -->
+            <a href="mailto:beulahiremide@gmail.com" class="glass-card p-4 rounded-xl flex items-center justify-center gap-3 hover:border-cyan-500/30 transition-colors group md:col-span-2">
                 <i data-lucide="mail" class="text-cyan-400 group-hover:rotate-12 transition-transform"></i>
                 <span class="text-sm font-medium">beulahiremide@gmail.com</span>
             </a>
-            <a href="https://github.com/dtechguy01" target="_blank" class="w-full glass-card p-4 rounded-xl flex items-center justify-center gap-3 hover:border-cyan-500/30 transition-colors group">
-                <i data-lucide="github" class="text-cyan-400 group-hover:scale-105 transition-transform"></i>
-                <span class="text-sm font-medium">github.com/dtechguy01</span>
+            <!-- WhatsApp Secure Link 1 -->
+            <a href="https://wa.me/2348088009455" target="_blank" class="glass-card p-4 rounded-xl flex items-center justify-center gap-3 hover:border-emerald-500/40 transition-colors group">
+                <i data-lucide="message-square" class="text-emerald-400 group-hover:scale-110 transition-transform"></i>
+                <span class="text-sm font-medium text-emerald-400">WhatsApp: 08088009455</span>
+            </a>
+            <!-- WhatsApp Secure Link 2 -->
+            <a href="https://wa.me/2349164601201" target="_blank" class="glass-card p-4 rounded-xl flex items-center justify-center gap-3 hover:border-emerald-500/40 transition-colors group">
+                <i data-lucide="message-square" class="text-emerald-400 group-hover:scale-110 transition-transform"></i>
+                <span class="text-sm font-medium text-emerald-400">WhatsApp: 09164601201</span>
             </a>
         </div>
     </section>
@@ -268,10 +291,19 @@
         <p>&copy; 2026 Beulah Iremide Adeoye. System status: Production Ready.</p>
     </footer>
 
-    <!-- Initialize Lucide Icons -->
+    <!-- Lucide Icons -->
     <script>
         lucide.createIcons();
     </script>
+    <!-- AOS Animation Engine Script Dependencies -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800,
+            easing: 'ease-out-cubic'
+        });
+    </script>
 </body>
-    </html>
-                            
+</html>
