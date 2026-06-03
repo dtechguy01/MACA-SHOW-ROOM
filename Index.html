@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beulah Iremide Adeoye | Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#060913',
+                        cardBg: 'rgba(11, 17, 32, 0.7)',
+                        accentNeon: '#00F2FE',
+                        accentBlue: '#0066FF',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #060913;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 102, 255, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(0, 242, 254, 0.08) 0px, transparent 50%);
+        }
+        .glass-card {
+            background: rgba(11, 17, 32, 0.6);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="text-gray-200 min-h-screen selection:bg-cyan-500 selection:text-black scroll-smooth">
+
+    <!-- Floating Navigation -->
+    <nav class="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-2xl glass-card rounded-full px-6 py-3.5 flex justify-between items-center shadow-2xl">
+        <a href="#" class="font-extrabold text-lg text-gradient tracking-wider">MACA</a>
+        <div class="flex gap-6 text-xs md:text-sm font-medium tracking-wide">
+            <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+            <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
+            <a href="#showroom" class="hover:text-cyan-400 transition-colors">Showroom</a>
+            <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="pt-36 pb-24 px-4 max-w-4xl mx-auto text-center flex flex-col items-center">
+        <!-- Animated Decorative Element -->
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card text-xs text-cyan-400 mb-6 uppercase tracking-widest font-mono border border-cyan-500/20">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span> Open For Global Roles
+        </div>
+        
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-3 uppercase leading-tight">
+            BEULAH IREMIDE ADEOYE <span class="text-gradient">(MACA)</span>
+        </h1>
+        <p class="text-cyan-400 font-bold tracking-widest text-xs md:text-sm mb-8 uppercase bg-cyan-950/30 px-4 py-1 rounded-md border border-cyan-500/10">
+            Full-Stack Developer &bull; Data Scientist & Analyst &bull; Expert Graphic Designer
+        </p>
+        <p class="text-gray-400 text-base md:text-xl max-w-3xl leading-relaxed mb-10 font-light">
+            Bridging the gap between high-performance code, architectural data insights, and premium visual design. I engineer immersive digital experiences and robust full-stack systems with a sharp, aesthetic eye for detail.
+        </p>
+        
+        <!-- Action Handles -->
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="https://github.com/dtechguy01" target="_blank" class="flex items-center gap-2 px-5 py-2.5 glass-card rounded-xl hover:text-cyan-400 hover:border-cyan-500/30 transition-all transform hover:-translate-y-0.5">
+                <i data-lucide="github" class="w-4 h-4"></i> <span class="text-sm font-medium">GitHub</span>
+            </a>
+            <a href="https://x.com/dtechguy01" target="_blank" class="flex items-center gap-2 px-5 py-2.5 glass-card rounded-xl hover:text-cyan-400 hover:border-cyan-500/30 transition-all transform hover:-translate-y-0.5">
+                <i data-lucide="twitter" class="w-4 h-4"></i> <span class="text-sm font-medium">Twitter / X</span>
+            </a>
+            <a href="https://www.tiktok.com/@d_techguy01?_r=1&_t=ZS-96t9EM04Eye" target="_blank" class="flex items-center gap-2 px-5 py-2.5 glass-card rounded-xl hover:text-cyan-400 hover:border-cyan-500/30 transition-all transform hover:-translate-y-0.5">
+                <i data-lucide="video" class="w-4 h-4"></i> <span class="text-sm font-medium">TikTok Showcase</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Core Skills Block -->
+    <section id="skills" class="py-16 px-4 max-w-5xl mx-auto border-t border-gray-900">
+        <h2 class="text-xl md:text-2xl font-black mb-12 text-center tracking-widest uppercase">Expertise Spectrum</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Dev Card -->
+            <div class="glass-card p-6 rounded-2xl relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-blue-600/10 rounded-full blur-2xl group-hover:bg-blue-600/20 transition-all"></div>
+                <div class="flex items-center gap-3 mb-5">
+                    <div class="p-2 bg-blue-500/10 rounded-lg text-blue-400"><i data-lucide="code" class="w-5 h-5"></i></div>
+                    <h3 class="font-bold text-lg">Full-Stack Dev</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs bg-gray-900/80 px-3 py-1.5 rounded-md font-mono text-blue-300 border border-gray-800">React</span>
+                    <span class="text-xs bg-gray-900/80 px-3 py-1.5 rounded-md font-mono text-blue-300 border border-gray-800">Node.js</span>
+                    <span class="text-xs bg-gray-900/80 px-3 py-1.5 rounded-md font-mono text-blue-300 border border-gray-800">Express</span>
+                    <span class="text-xs bg-gray-900/80 px-3 py-1.5 rounded-md font-mono text-blue-300 border border-gray-800">MongoDB</span>
+                    <span class="text-xs bg-gray-900/80 px-3 py-1.5 rounded-md font-mono text-blue-300 border border-gray-800">JavaScript</span>
+                </div>
+            </div>
+
+            <!-- Analytics Card -->
+            <div class="glass-card p-6 rounded-2xl relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all"></div>
+                <div class="flex items-center gap-3 mb-5">
+                    <div class="p-2 bg-cyan-500/10 rounded-lg text-cyan-400"><i data-lucide="binary" class="w-5 h-5"></i></div>
+                    <h3 class="font-bold text-lg">Data Science</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs bg-gray-900/80 px-3 py-1.5 rounded-md font-mono text-cyan-300 border border-gray-800">Python</span>
+                    <span class="text-xs bg-gray-900/80 px-3 py-1.5 rounded-md font-mono text-cyan-300 border border-gray-800">Pandas / NumPy</span>
+                    <span class="text-xs bg-gray-900/80 px-3 py-1.5 rounded-md font-mono text-cyan-300 border border-gray-800">Scikit-Learn</span>
+                    <span class="text-xs bg-gray-900/80 px-3 py-1.5 rounded-md font-mono text-cyan-300 border border-gray-800">R Programming</span>
+                    <span class="text-xs bg-gray-900/80 px-3 py-1.5 rounded-md font-mono text-cyan-300 border border-gray-800">SQL Architecture</span>
+                </div>
+            </div>
+
+            <!-- UI UX & Design Card -->
+            <div class="glass-card p-6 rounded-2xl relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all"></div>
+                <div class="flex items-center gap-3 mb-5">
+                    <div class="p-2 bg-purple-500/10 rounded-lg text-purple-400"><i data-lucide="palette" class="w-5 h-5"></i></div>
+                    <h3 class="font-bold text-lg">UI/UX & Brand</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs bg-gray-900/80 px-3 py-1.5 rounded-md font-mono text-purple-300 border border-gray-800">Photoshop</span>
+                    <span class="text-xs bg-gray-900/80 px-3 py-1.5 rounded-md font-mono text-purple-300 border border-gray-800">Illustrator</span>
+                    <span class="text-xs bg-gray-900/80 px-3 py-1.5 rounded-md font-mono text-purple-300 border border-gray-800">Figma UI</span>
+                    <span class="text-xs bg-gray-900/80 px-3 py-1.5 rounded-md font-mono text-purple-300 border border-gray-800">Brand Guidelines</span>
+                    <span class="text-xs bg-gray-900/80 px-3 py-1.5 rounded-md font-mono text-purple-300 border border-gray-800">Visual Assets</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Work Showroom Section -->
+    <section id="showroom" class="py-16 px-4 max-w-5xl mx-auto border-t border-gray-900">
+        <div class="text-center mb-12">
+            <h2 class="text-2xl font-black tracking-widest uppercase mb-3">Production & Branding Showroom</h2>
+            <p class="text-gray-500 text-sm max-w-md mx-auto">A live gallery showcasing data systems, full-stack builds, and high-fidelity brand design layouts.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Showroom Item 1: Elora Grills n Fries -->
+            <div class="glass-card rounded-2xl overflow-hidden group flex flex-col justify-between">
+                <div class="p-4 bg-gray-950/40 relative">
+                    <!-- Dynamic Asset Box Placeholder for 220011.png / 220005.png -->
+                    <div class="aspect-[4/3] w-full rounded-xl bg-gradient-to-br from-amber-600/20 to-red-600/20 border border-gray-800 flex flex-col items-center justify-center p-6 text-center group-hover:border-amber-500/30 transition-all relative overflow-hidden">
+                        <i data-lucide="chef-hat" class="w-12 h-12 text-amber-400 mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="font-bold text-gray-200 text-lg">Elora Grills n Fries</span>
+                        <span class="text-xs text-gray-500 max-w-xs mt-1">Full Identity Layout: Brand Identity Typography, Assets & Custom Color Swatches</span>
+                        <!-- Asset Placement Note -->
+                        <div class="absolute bottom-2 right-3 text-[10px] font-mono text-gray-600">Asset: 220011.png</div>
+                    </div>
+                </div>
+                <div class="p-6 pt-2">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="font-bold text-lg text-white group-hover:text-cyan-400 transition-colors">Elora Grills Systems</h3>
+                        <span class="text-[10px] font-mono tracking-wider text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-0.5 rounded uppercase">Full Identity</span>
+                    </div>
+                    <p class="text-sm text-gray-400 leading-relaxed mb-4">
+                        A full commercial design deployment consisting of comprehensive visual brand architecture, vector logo sets, menu layout designs, and custom typography assets.
+                    </p>
+                    <div class="text-xs font-mono text-gray-600">
+                        Tech Stack: CorelDraw &bull; Photoshop &bull; UI Branding System
+                    </div>
+                </div>
+            </div>
+
+            <!-- Showroom Item 2: FlexiLearn -->
+            <div class="glass-card rounded-2xl overflow-hidden group flex flex-col justify-between">
+                <div class="p-4 bg-gray-950/40">
+                    <div class="aspect-[4/3] w-full rounded-xl bg-gradient-to-br from-cyan-600/20 to-blue-600/20 border border-gray-800 flex flex-col items-center justify-center p-6 text-center group-hover:border-cyan-500/30 transition-all relative overflow-hidden">
+                        <i data-lucide="database" class="w-12 h-12 text-cyan-400 mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="font-bold text-gray-200 text-lg">FlexiLearn Portal</span>
+                        <span class="text-xs text-gray-500 max-w-xs mt-1">Interactive Academic Content Server & Course Management Directory</span>
+                    </div>
+                </div>
+                <div class="p-6 pt-2">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="font-bold text-lg text-white group-hover:text-cyan-400 transition-colors">FlexiLearn System</h3>
+                        <span class="text-[10px] font-mono tracking-wider text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-2 py-0.5 rounded uppercase">Full Stack Application</span>
+                    </div>
+                    <p class="text-sm text-gray-400 leading-relaxed mb-4">
+                        A dynamic web dashboard engineered to streamline digital material deployment, student authorization hierarchies, and asynchronous course metadata streaming.
+                    </p>
+                    <div class="text-xs font-mono text-gray-600">
+                        Tech Stack: PHP &bull; MySQL Database &bull; JavaScript &bull; Tailwind
+                    </div>
+                </div>
+            </div>
+
+            <!-- Showroom Item 3: The Coker Charity Foundation -->
+            <div class="glass-card rounded-2xl overflow-hidden group flex flex-col justify-between">
+                <div class="p-4 bg-gray-950/40 relative">
+                    <div class="aspect-[4/3] w-full rounded-xl bg-gradient-to-br from-pink-600/20 to-purple-600/20 border border-gray-800 flex flex-col items-center justify-center p-6 text-center group-hover:border-pink-500/30 transition-all relative overflow-hidden">
+                        <i data-lucide="heart" class="w-12 h-12 text-pink-400 mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="font-bold text-gray-200 text-lg">Coker Foundation Identity</span>
+                        <span class="text-xs text-gray-500 max-w-xs mt-1">Media Layout Architecture, Content Matrix & Vector Brand Representation</span>
+                        <div class="absolute bottom-2 right-3 text-[10px] font-mono text-gray-600">Asset: 220006.png</div>
+                    </div>
+                </div>
+                <div class="p-6 pt-2">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="font-bold text-lg text-white group-hover:text-cyan-400 transition-colors">The Coker Charity UI System</h3>
+                        <span class="text-[10px] font-mono tracking-wider text-pink-400 bg-pink-500/10 border border-pink-500/20 px-2 py-0.5 rounded uppercase">Visual Brand Assets</span>
+                    </div>
+                    <p class="text-sm text-gray-400 leading-relaxed mb-4">
+                        Engineering dynamic promotional layouts, presentation vectors, and community focus frameworks designed to power organizational media growth.
+                    </p>
+                    <div class="text-xs font-mono text-gray-600">
+                        Tech Stack: Meticulous Layout Structure &bull; Vector Design &bull; Illustrator
+                    </div>
+                </div>
+            </div>
+
+            <!-- Showroom Item 4: Joynest Gifts Sign Out Package -->
+            <div class="glass-card rounded-2xl overflow-hidden group flex flex-col justify-between">
+                <div class="p-4 bg-gray-950/40 relative">
+                    <div class="aspect-[4/3] w-full rounded-xl bg-gradient-to-br from-yellow-600/20 to-amber-500/20 border border-gray-800 flex flex-col items-center justify-center p-6 text-center group-hover:border-yellow-500/30 transition-all relative overflow-hidden">
+                        <i data-lucide="gift" class="w-12 h-12 text-yellow-400 mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="font-bold text-gray-200 text-lg">Joynest Matrix Banner</span>
+                        <span class="text-xs text-gray-500 max-w-xs mt-1">High-Fidelity Typography Systems & Commercial Packages Component Architecture</span>
+                        <div class="absolute bottom-2 right-3 text-[10px] font-mono text-gray-600">Asset: 220008.png</div>
+                    </div>
+                </div>
+                <div class="p-6 pt-2">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="font-bold text-lg text-white group-hover:text-cyan-400 transition-colors">Joynest Commercial Layout</h3>
+                        <span class="text-[10px] font-mono tracking-wider text-yellow-400 bg-yellow-500/10 border border-yellow-500/20 px-2 py-0.5 rounded uppercase">Marketing Canvas</span>
+                    </div>
+                    <p class="text-sm text-gray-400 leading-relaxed mb-4">
+                        A gold-accented commercial menu tier configuration asset built to manage information structure across consumer engagement streams.
+                    </p>
+                    <div class="text-xs font-mono text-gray-600">
+                        Tech Stack: Typography Engineering &bull; Chromatic Gold Rendering &bull; Layout
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Block -->
+    <section id="contact" class="py-20 px-4 max-w-3xl mx-auto text-center border-t border-gray-900">
+        <h2 class="text-xl md:text-2xl font-black mb-4 tracking-widest uppercase">Initiate Workspace Link</h2>
+        <p class="text-gray-500 text-sm max-w-sm mx-auto mb-10">
+            Available for elite enterprise full-stack contract roles, deep learning workflows, and global high-fidelity branding design architectures.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+            <a href="mailto:beulahiremide@gmail.com" class="w-full glass-card p-4 rounded-xl flex items-center justify-center gap-3 hover:border-cyan-500/30 transition-colors group">
+                <i data-lucide="mail" class="text-cyan-400 group-hover:rotate-12 transition-transform"></i>
+                <span class="text-sm font-medium">beulahiremide@gmail.com</span>
+            </a>
+            <a href="https://github.com/dtechguy01" target="_blank" class="w-full glass-card p-4 rounded-xl flex items-center justify-center gap-3 hover:border-cyan-500/30 transition-colors group">
+                <i data-lucide="github" class="text-cyan-400 group-hover:scale-105 transition-transform"></i>
+                <span class="text-sm font-medium">github.com/dtechguy01</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-950 py-10 text-center text-xs text-gray-700 font-mono uppercase tracking-widest">
+        <p>&copy; 2026 Beulah Iremide Adeoye. System status: Production Ready.</p>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
