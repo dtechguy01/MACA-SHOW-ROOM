@@ -24,21 +24,57 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- AOS Animation Engine Stylesheet -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700;800&display=swap');
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #060913;
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(0, 102, 255, 0.12) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(0, 242, 254, 0.08) 0px, transparent 50%);
-            overflow-x: hidden;
+        body { font-family: 'JetBrains Mono', monospace; }
+        .tech-header { font-family: 'Orbitron', sans-serif; tracking-widest; }
+
+        :root {
+            --bg-gradient: radial-gradient(at 0% 0%, rgba(11, 17, 32, 1) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(20, 24, 43, 1) 0px, transparent 50%);
+            --card-bg: rgba(15, 23, 42, 0.45);
+            --card-border: rgba(255, 255, 255, 0.06);
+            --text-primary: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        html.light {
+            --bg-gradient: radial-gradient(at 0% 0%, rgba(241, 245, 249, 1) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(226, 232, 240, 1) 0px, transparent 50%);
+            --card-bg: rgba(255, 255, 255, 0.65);
+            --card-border: rgba(15, 23, 42, 0.08);
+            --text-primary: #0f172a;
+            --text-muted: #475569;
+        }
+        .liquid-btn {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.8), rgba(37, 99, 235, 0.8));
+            backdrop-filter: blur(12px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .liquid-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(167, 139, 250, 0.6) 0%, transparent 60%),
+                        radial-gradient(circle, rgba(45, 212, 191, 0.6) 0%, transparent 60%);
+            animation: liquidMesh 6s infinite alternate linear;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .liquid-btn:hover::before { opacity: 1; }
+        @keyframes liquidMesh {
+            0% { transform: rotate(0deg) translate(0, 0); }
+            100% { transform: rotate(360deg) translate(-20px, 20px); }
         }
         .glass-card {
-            background: rgba(11, 17, 32, 0.6);
+            background: var(--card-bg);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--card-border);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .glass-card:hover {
@@ -48,23 +84,29 @@
         }
         .text-gradient {
             background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%);
-            -webkit-background-clip: text;
+            -webkit-bg-clip: text;
             -webkit-text-fill-color: transparent;
         }
     </style>
+    
 </head>
 <body class="text-gray-200 min-h-screen selection:bg-cyan-500 selection:text-black scroll-smooth">
 
     <!-- Floating Navigation -->
-    <nav class="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-2xl glass-card rounded-full px-6 py-3.5 flex justify-between items-center shadow-2xl">
-        <a href="#" class="font-extrabold text-lg text-gradient tracking-wider">MACA</a>
-        <div class="flex gap-6 text-xs md:text-sm font-medium tracking-wide">
+        <nav class="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-2xl glass-card rounded-full px-6 py-3.5 flex justify-between items-center shadow-2xl">
+        <a href="#" class="tech-header text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 tracking-wide">MACA</a>
+        <div class="flex items-center gap-6 text-xs md:text-sm font-medium tracking-wide">
             <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
             <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
             <a href="#showroom" class="hover:text-cyan-400 transition-colors">Showroom</a>
             <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+
+            <button id="theme-toggle" type="button" class="p-2 rounded-xl bg-white/5 border border-white/10 text-cyan-400 hover:bg-cyan-500/10 transition-all duration-300">
+                <i id="theme-icon" class="fa-solid fa-moon"></i>
+            </button>
         </div>
-    </nav>
+        </nav>
+    
 
     <!-- Hero Section -->
     <section id="about" class="pt-36 pb-24 px-4 max-w-4xl mx-auto text-center flex flex-col items-center">
@@ -137,105 +179,150 @@
                     <i class="fa-solid fa-chart-pie text-lg"></i>
                 </div>
                 <h3 class="font-bold text-lg text-white">Data Science & Analytics</h3>
-            </div>
-            <div class="flex flex-wrap gap-2">
-                <span class="text-xs font-mono bg-cyan-950/40 text-cyan-300 border border-cyan-900/30 px-2.5 py-1 rounded-md">Python (Advanced)</span>
-                <span class="text-xs font-mono bg-cyan-950/40 text-cyan-300 border border-cyan-900/30 px-2.5 py-1 rounded-md">R Programming</span>
-                <span class="text-xs font-mono bg-cyan-950/40 text-cyan-300 border border-cyan-900/30 px-2.5 py-1 rounded-md">MySQL & PostgreSQL</span>
-                <span class="text-xs font-mono bg-cyan-950/40 text-cyan-300 border border-cyan-900/30 px-2.5 py-1 rounded-md">Pandas / NumPy</span>
-                <span class="text-xs font-mono bg-cyan-950/40 text-cyan-300 border border-cyan-900/30 px-2.5 py-1 rounded-md">Statistical Computing</span>
-                <span class="text-xs font-mono bg-cyan-950/40 text-cyan-300 border border-cyan-900/30 px-2.5 py-1 rounded-md">Hypothesis Testing</span>
-                <span class="text-xs font-mono bg-cyan-950/40 text-cyan-300 border border-cyan-900/30 px-2.5 py-1 rounded-md">Data Pipeline Wrangling</span>
-            </div>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl relative overflow-hidden group border border-gray-800/50 bg-gradient-to-b from-gray-900/40 to-black/40" data-aos="fade-up" data-aos-delay="300">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all"></div>
-            <div class="flex items-center gap-3 mb-5">
-                <div class="p-3 bg-purple-500/10 rounded-xl text-purple-400">
-                    <i class="fa-solid fa-bezier-curve text-lg"></i>
-                </div>
-                <h3 class="font-bold text-lg text-white">UI/UX & Identity Design</h3>
-            </div>
-            <div class="flex flex-wrap gap-2">
-                <span class="text-xs font-mono bg-purple-950/40 text-purple-300 border border-purple-900/30 px-2.5 py-1 rounded-md">Adobe Photoshop</span>
-                <span class="text-xs font-mono bg-purple-950/40 text-purple-300 border border-purple-900/30 px-2.5 py-1 rounded-md">Adobe Illustrator</span>
-                <span class="text-xs font-mono bg-purple-950/40 text-purple-300 border border-purple-900/30 px-2.5 py-1 rounded-md">Figma UI Systems</span>
-                <span class="text-xs font-mono bg-purple-950/40 text-purple-300 border border-purple-900/30 px-2.5 py-1 rounded-md">Corporate Identity Asset Kits</span>
-                <span class="text-xs font-mono bg-purple-950/40 text-purple-300 border border-purple-900/30 px-2.5 py-1 rounded-md">High-Fidelity Wireframing</span>
-                <span class="text-xs font-mono bg-purple-950/40 text-purple-300 border border-purple-900/30 px-2.5 py-1 rounded-md">Vector Precision Systems</span>
-                <span class="text-xs font-mono bg-purple-950/40 text-purple-300 border border-purple-900/30 px-2.5 py-1 rounded-md">Print Layout Management</span>
-            </div>
-        </div>
-
-    </div>
-</section>
-    
-
-    <!-- Work Showroom Section -->
-    <section id="showroom" class="py-16 px-4 max-w-5xl mx-auto border-t border-gray-900">
-        <div class="text-center mb-12" data-aos="fade-up">
-            <h2 class="text-2xl font-black tracking-widest uppercase mb-3">Production & Branding Showroom</h2>
-            <p class="text-gray-500 text-sm max-w-md mx-auto">A live gallery showcasing data systems, full-stack builds, and high-fidelity brand design layouts.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="col-span-1 md:col-span-2 flex justify-center items-center py-12" data-aos="zoom-in">
-            <a href="https://www.tiktok.com/@d_techguy01" target="_blank" class="relative group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 font-bold text-white rounded-full transition-all duration-300 hover:scale-105 shadow-lg shadow-cyan-500/20">
-                <span class="absolute -inset-1 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 opacity-40 blur-sm group-hover:opacity-75 transition duration-300 animate-pulse"></span>
-                
-                <span class="relative flex items-center gap-3">
+        <div class="col-span-1 md:col-span-2 flex justify-center items-center py-12" data-aos="zoom-in">
+            <a href="https://www.tiktok.com/@d_techguy01" target="_blank" onmousemove="handleLiquidMove(event)" class="liquid-btn group relative inline-flex items-center gap-3 px-8 py-4 font-bold text-white rounded-full transition-all duration-300 hover:scale-105 shadow-xl shadow-cyan-500/20">
+                <span class="relative z-10 flex items-center gap-3">
                     <svg class="w-5 h-5 animate-bounce" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.61 4.2 1.13 1.2 2.69 1.95 4.34 2.13v3.91c-1.74-.06-3.42-.64-4.83-1.68-.12-.09-.23-.21-.38-.35v6.79c-.11 1.76-.74 3.48-1.85 4.82-1.46 1.68-3.66 2.63-5.89 2.5a7.481 7.481 0 01-6.62-5.46c-.55-2.06-.21-4.32.95-6.1a7.41 7.41 0 015.65-3.49v3.98c-1.57.17-3.03.98-3.87 2.33-.77 1.26-.85 2.89-.2 4.22.68 1.34 2.11 2.21 3.63 2.17 1.48.01 2.88-.85 3.47-2.2.31-.75.4-1.57.38-2.38V.02z"/>
                     </svg>
                     Click on my TikTok to view my work
                 </span>
             </a>
-                </div>
-            
-    <section id="contact" class="py-20 px-4 max-w-3xl mx-auto text-center border-t border-gray-900">
-        <h2 data-aos="fade-up" class="text-xl md:text-2xl font-black mb-4 tracking-widest uppercase">Let's Build Something Great</h2>
-        <p data-aos="fade-up" data-aos-delay="100" class="text-gray-500 text-sm max-w-md mx-auto mb-10 leading-relaxed">
-            Open to collaborations, freelance projects, and global opportunities. Let's connect and create something remarkable together.
-        </p>
-        
-        <div data-aos="zoom-in" data-aos-duration="800" class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl mx-auto">
-            <!-- Email -->
-            <a href="mailto:beulahiremide@gmail.com" class="glass-card p-4 rounded-xl flex items-center justify-center gap-3 hover:border-cyan-500/30 transition-colors group md:col-span-2">
-                <i data-lucide="mail" class="text-cyan-400 group-hover:rotate-12 transition-transform"></i>
-                <span class="text-sm font-medium">beulahiremide@gmail.com</span>
-            </a>
-            <!-- WhatsApp Secure Link 1 -->
-            <a href="https://wa.me/2348088009455" target="_blank" class="glass-card p-4 rounded-xl flex items-center justify-center gap-3 hover:border-emerald-500/40 transition-colors group">
-                <i data-lucide="message-square" class="text-emerald-400 group-hover:scale-110 transition-transform"></i>
-                <span class="text-sm font-medium text-emerald-400">WhatsApp: 08088009455</span>
-            </a>
-            <!-- WhatsApp Secure Link 2 -->
-            <a href="https://wa.me/2349164601201" target="_blank" class="glass-card p-4 rounded-xl flex items-center justify-center gap-3 hover:border-emerald-500/40 transition-colors group">
-                <i data-lucide="message-square" class="text-emerald-400 group-hover:scale-110 transition-transform"></i>
-                <span class="text-sm font-medium text-emerald-400">WhatsApp: 09164601201</span>
-            </a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="border-t border-gray-950 py-10 text-center text-xs text-gray-700 font-mono uppercase tracking-widest">
-        <p>&copy; 2026 Beulah Iremide Adeoye. System status: Production Ready.</p>
-    </footer>
+<section id="contact" class="py-24 px-4 max-w-3xl mx-auto border-t border-gray-800/60">
+    <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="tech-header text-2xl font-black mb-4 tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">SEND A MESSAGE</h2>
+        <p class="text-sm max-w-md mx-auto line-height-relaxed" style="color: var(--text-muted);">Have an enterprise system layout, full-stack deployment requirement, or dynamic visual asset kit pipeline to build? Let's process the brief.</p>
+    </div>
 
-    <!-- Lucide Icons -->
-    <script>
-        lucide.createIcons();
-    </script>
-    <!-- AOS Animation Engine Script Dependencies -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            once: true,
-            offset: 100,
-            duration: 800,
-            easing: 'ease-out-cubic'
-        });
-    </script>
+    <form id="portfolio-form" class="p-8 rounded-2xl border transition-all duration-300 space-y-6 shadow-2xl" style="background: var(--card-bg); border-color: var(--card-border);" data-aos="fade-up" onsubmit="triggerMessageSuccess(event)">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+                <label class="text-xs uppercase tracking-wider font-semibold" style="color: var(--text-muted);">Name</label>
+                <input type="text" required placeholder="Your name" class="w-full px-4 py-3 bg-black/20 dark:bg-white/5 border border-gray-800/40 rounded-xl focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all text-sm text-slate-100">
+            </div>
+            <div class="space-y-2">
+                <label class="text-xs uppercase tracking-wider font-semibold" style="color: var(--text-muted);">Email</label>
+                <input type="email" required placeholder="Your email" class="w-full px-4 py-3 bg-black/20 dark:bg-white/5 border border-gray-800/40 rounded-xl focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all text-sm text-slate-100">
+            </div>
+        </div>
+        <div class="space-y-2">
+            <label class="text-xs uppercase tracking-wider font-semibold" style="color: var(--text-muted);">Subject</label>
+            <input type="text" required placeholder="Subject" class="w-full px-4 py-3 bg-black/20 dark:bg-white/5 border border-gray-800/40 rounded-xl focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all text-sm text-slate-100">
+        </div>
+        <div class="space-y-2">
+            <label class="text-xs uppercase tracking-wider font-semibold" style="color: var(--text-muted);">Message</label>
+            <textarea required rows="5" placeholder="Your message" class="w-full px-4 py-3 bg-black/20 dark:bg-white/5 border border-gray-800/40 rounded-xl focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all text-sm text-slate-100 resize-none"></textarea>
+        </div>
+        
+        <button type="submit" onmousemove="handleLiquidMove(event)" class="liquid-btn w-full py-4 text-white font-bold rounded-xl flex justify-center items-center gap-2 hover:scale-[1.01] active:scale-[0.99] transition-all shadow-lg shadow-blue-500/20">
+            <span class="relative z-10 flex items-center gap-2">
+                Send Message <i class="fa-solid fa-paper-plane text-xs"></i>
+            </span>
+        </button>
+    </form>
+
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 text-center" data-aos="fade-up">
+        <a href="mailto:beulahiremide@gmail.com" class="glass-card p-4 rounded-xl flex items-center justify-center gap-3 text-sm" style="color: var(--text-muted);">
+            <i class="fa-regular fa-envelope text-cyan-400"></i> beulahiremide@gmail.com
+        </a>
+        <a href="https://wa.me/2348088009455" target="_blank" class="glass-card p-4 rounded-xl flex items-center justify-center gap-3 text-sm" style="color: var(--text-muted);">
+            <i class="fa-brands fa-whatsapp text-emerald-400"></i> WhatsApp 1
+        </a>
+        <a href="https://wa.me/2349164601201" target="_blank" class="glass-card p-4 rounded-xl flex items-center justify-center gap-3 text-sm" style="color: var(--text-muted);">
+            <i class="fa-brands fa-whatsapp text-emerald-400"></i> WhatsApp 2
+        </a>
+    </div>
+</section>
+
+<footer class="py-12 border-t border-gray-950 text-center text-xs tracking-widest uppercase text-gray-500 font-mono">
+    <p>© 2026 BEULAH IREMIDE ADEOYE. SYSTEM STATUS: PRODUCTION READY.</p>
+</footer>
+
+<div id="success-modal" class="fixed inset-0 z-50 invisible opacity-0 flex justify-center items-center p-4 bg-black/60 backdrop-blur-md transition-all duration-500">
+    <div class="max-w-md w-full p-8 rounded-2xl border border-white/10 text-center scale-75 opacity-0 transition-all duration-500 transform modal-content shadow-2xl bg-slate-950">
+        <div class="w-16 h-16 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex justify-center items-center mx-auto mb-6 shadow-lg shadow-cyan-400/30">
+            <i class="fa-solid fa-check text-white text-2xl"></i>
+        </div>
+        <h3 class="tech-header text-xl font-bold text-white mb-2">TRANSMISSION COMPLETE</h3>
+        <p class="text-sm text-gray-400 mb-6">Message metrics have successfully breached the pipeline. Secure handshake complete.</p>
+        <button onclick="closeSuccessModal()" class="liquid-btn px-6 py-2.5 text-white text-xs font-bold uppercase rounded-lg tracking-wider">Close Console</button>
+    </div>
+</div>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    lucide.createIcons();
+    AOS.init({ once: true, offset: 100, duration: 800, easing: 'ease-out-cubic' });
+
+    // Theme Switch Engine Logic
+    const toggleBtn = document.getElementById('theme-toggle');
+    const toggleIcon = document.getElementById('theme-icon');
+    const htmlEl = document.documentElement;
+
+    function applyTheme(theme) {
+        if (theme === 'light') {
+            htmlEl.classList.add('light');
+            toggleIcon.className = 'fa-solid fa-sun';
+        } else {
+            htmlEl.classList.remove('light');
+            toggleIcon.className = 'fa-solid fa-moon';
+        }
+        localStorage.setItem('portfolio-theme', theme);
+    }
+
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    } else {
+        applyTheme(systemPrefersLight ? 'light' : 'dark');
+    }
+
+    toggleBtn.addEventListener('click', () => {
+        applyTheme(htmlEl.classList.contains('light') ? 'dark' : 'light');
+    });
+
+    // Liquid Button Mouse Tracker Engine
+    function handleLiquidMove(e) {
+        const btn = e.currentTarget;
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        btn.style.setProperty('--x', `${x}px`);
+        btn.style.setProperty('--y', `${y}px`);
+    }
+
+    // Modal Control Execution
+    function triggerMessageSuccess(e) {
+        e.preventDefault();
+        const modal = document.getElementById('success-modal');
+        const content = modal.querySelector('.modal-content');
+        
+        modal.classList.remove('invisible', 'opacity-0');
+        setTimeout(() => {
+            content.classList.remove('scale-75', 'opacity-0');
+            content.classList.add('scale-100', 'opacity-100');
+        }, 50);
+        document.getElementById('portfolio-form').reset();
+    }
+
+    function closeSuccessModal() {
+        const modal = document.getElementById('success-modal');
+        const content = modal.querySelector('.modal-content');
+        
+        content.classList.remove('scale-100', 'opacity-100');
+        content.classList.add('scale-75', 'opacity-0');
+        setTimeout(() => {
+            modal.classList.add('invisible', 'opacity-0');
+        }, 400);
+    }
+</script>
 </body>
-</html>
+        </html>
+            
