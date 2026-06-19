@@ -3,49 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beulah Iremide Adeoye | Portfolio</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Adeoye Beulah Iremide | Portfolio</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        darkBg: '#060913',
-                        cardBg: 'rgba(11, 17, 32, 0.7)',
-                        accentNeon: '#00F2FE',
-                        accentBlue: '#0066FF',
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- AOS Animation Engine Stylesheet -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
     <style>
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
+        /* Typography Architecture */
         body { 
             font-family: 'JetBrains Mono', monospace; 
-            background-color: #060913; 
-            color: #e2e8f0;
-            overflow-x: hidden;
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
         .tech-header { font-family: 'Orbitron', sans-serif; tracking-widest; }
 
+        /* Structural Theme Variable Matrices */
+        :root {
+            --bg-color: #060913;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --card-bg: rgba(15, 23, 42, 0.45);
+            --card-border: rgba(255, 255, 255, 0.06);
+            --border-accent: rgba(249, 115, 22, 0.2);
+            --bg-gradient: radial-gradient(at 0% 0%, rgba(249, 115, 22, 0.08) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(30, 41, 59, 0.5) 0px, transparent 50%);
+        }
+        html.light {
+            --bg-color: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --card-bg: rgba(255, 255, 255, 0.75);
+            --card-border: rgba(15, 23, 42, 0.08);
+            --border-accent: rgba(249, 115, 22, 0.4);
+            --bg-gradient: radial-gradient(at 0% 0%, rgba(249, 115, 22, 0.05) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(226, 232, 240, 0.8) 0px, transparent 50%);
+        }
+
+        body { background-color: var(--bg-color); color: var(--text-main); background-image: var(--bg-gradient); overflow-x: hidden; }
+
+        /* Liquid Button Hover Engines */
         .liquid-btn {
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, rgba(6, 182, 212, 0.8), rgba(37, 99, 235, 0.8));
+            background: linear-gradient(135deg, #ea580c, #f59e0b);
             backdrop-filter: blur(12px);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -53,8 +54,7 @@
             content: '';
             position: absolute;
             top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(167, 139, 250, 0.6) 0%, transparent 60%),
-                        radial-gradient(circle, rgba(45, 212, 191, 0.6) 0%, transparent 60%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
             animation: liquidMesh 6s infinite alternate linear;
             pointer-events: none;
             z-index: 0;
@@ -66,260 +66,322 @@
             0% { transform: rotate(0deg) translate(0, 0); }
             100% { transform: rotate(360deg) translate(-20px, 20px); }
         }
+
+        /* Glassmorphism Structural Classes */
         .glass-card {
-            background: rgba(11, 17, 32, 0.6);
+            background: var(--card-bg);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--card-border);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .glass-card:hover {
             transform: translateY(-6px);
-            border-color: rgba(0, 242, 254, 0.2);
-            box-shadow: 0 20px 40px -15px rgba(0, 242, 254, 0.1);
+            border-color: var(--border-accent);
+            box-shadow: 0 20px 40px -15px rgba(249, 115, 22, 0.15);
         }
-        .text-gradient {
-            background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%);
-            -webkit-bg-clip: text;
-            -webkit-text-fill-color: transparent;
+
+        /* Marquee Motion Mechanics */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 25s linear infinite;
         }
     </style>
-    
-    
 </head>
-<body class="text-gray-200 min-h-screen selection:bg-cyan-500 selection:text-black scroll-smooth">
+<body>
 
-    <!-- Floating Navigation -->
-        <nav class="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-2xl glass-card rounded-full px-6 py-3.5 flex justify-between items-center shadow-2xl">
-        <a href="#" class="tech-header text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 tracking-wide">MACA</a>
-        <div class="flex items-center gap-6 text-xs md:text-sm font-medium tracking-wide">
-            <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
-            <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
-            <a href="#showroom" class="hover:text-cyan-400 transition-colors">Showroom</a>
-            <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+    <nav class="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-2xl glass-card rounded-full px-6 py-3.5 flex justify-between items-center shadow-2xl">
+        <a href="#" class="tech-header text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500 tracking-wide">MACA</a>
+        <div class="flex items-center gap-5 text-xs md:text-sm font-medium tracking-wide">
+            <a href="#about" class="hover:text-orange-500 transition-colors">About</a>
+            <a href="#experience" class="hover:text-orange-500 transition-colors">Experience</a>
+            <a href="#contact" class="hover:text-orange-500 transition-colors">Contact</a>
 
-            <button id="theme-toggle" type="button" class="p-2 rounded-xl bg-white/5 border border-white/10 text-cyan-400 hover:bg-cyan-500/10 transition-all duration-300">
+            <button id="theme-toggle" type="button" class="p-2 rounded-xl bg-slate-800/20 hover:bg-orange-500/10 border border-orange-500/20 text-orange-500 transition-all duration-300">
                 <i id="theme-icon" class="fa-solid fa-moon"></i>
             </button>
         </div>
-        </nav>
-    
+    </nav>
 
-    <!-- Hero Section -->
-    <section id="about" class="pt-36 pb-24 px-4 max-w-4xl mx-auto text-center flex flex-col items-center">
-        <!-- Animated Pulse Tag -->
-        <div data-aos="fade-down" data-aos-duration="1000" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card text-xs text-cyan-400 mb-6 uppercase tracking-widest font-mono border border-cyan-500/20">
-            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span> Open For Global Roles
-        </div>
-        
-        <h1 data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200" class="text-4xl md:text-6xl font-extrabold tracking-tight mb-3 uppercase leading-tight">
-            BEULAH IREMIDE ADEOYE <span class="text-gradient">(MACA)</span>
-        </h1>
-        <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" class="text-cyan-400 font-bold tracking-widest text-xs md:text-sm mb-8 uppercase bg-cyan-950/30 px-4 py-1 rounded-md border border-cyan-500/10">
-            Full-Stack Developer &bull; Data Scientist & Analyst &bull; Expert Graphic Designer
-        </p>
-        <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600" class="text-gray-400 text-base md:text-xl max-w-3xl leading-relaxed mb-10 font-light">
-            Bridging the gap between high-performance code, architectural data insights, and premium visual design. I engineer immersive digital experiences and robust full-stack systems with a sharp, aesthetic eye for detail.
-        </p>
-        
-        <!-- Action Handles -->
-        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800" class="flex flex-wrap justify-center gap-4 mb-8">
-            <a href="https://github.com/dtechguy01" target="_blank" class="flex items-center gap-2 px-5 py-2.5 glass-card rounded-xl hover:text-cyan-400">
-                <i data-lucide="brand-github" class="w-4 h-4"></i> <span class="text-sm font-medium">GitHub</span>
-            </a>
-            <a href="https://x.com/dtechguy01" target="_blank" class="flex items-center gap-2 px-5 py-2.5 glass-card rounded-xl hover:text-cyan-400">
-                <i data-lucide="brand-x" class="w-4 h-4"></i> <span class="text-sm font-medium">Twitter / X</span>
-            </a>
-            <a href="https://www.tiktok.com/@d_techguy01?_r=1&_t=ZS-96t9EM04Eye" target="_blank" class="flex items-center gap-2 px-5 py-2.5 glass-card rounded-xl hover:text-cyan-400">
-                <i data-lucide="video" class="w-4 h-4"></i> <span class="text-sm font-medium">TikTok Showcase</span>
-            </a>
+    <section id="about" class="pt-36 pb-24 px-4 max-w-5xl mx-auto flex flex-col items-center text-center relative overflow-hidden">
+        <div class="relative w-44 h-44 md:w-52 md:h-52 mb-8 rounded-2xl overflow-hidden glass-card p-2 flex items-center justify-center shadow-2xl group" data-aos="zoom-in">
+            <img src="maca-avatar.png" alt="MACA Branding System" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105">
         </div>
 
-        <!-- Premium Interactive Download CV Button -->
-        <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="900" class="w-full max-w-xs">
-            <a href="my-cv.pdf" download="Beulah_Adeoye_CV.pdf" class="flex items-center justify-center gap-3 w-full px-6 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl text-black font-extrabold text-sm hover:opacity-90 shadow-xl shadow-cyan-500/20 tracking-wider uppercase transition-all transform hover:-translate-y-1">
-                <i data-lucide="download" class="w-5 h-5 stroke-[2.5]"></i> <span>Download My CV</span>
+        <div class="space-y-4 max-w-3xl" data-aos="fade-up">
+            <h1 class="tech-header text-4xl md:text-6xl font-black tracking-tight">
+                Adeoye Beulah <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Iremide</span>
+            </h1>
+            <p class="text-sm md:text-base font-medium max-w-2xl mx-auto leading-relaxed" style="color: var(--text-muted);">
+                Multidisciplinary Tech Professional specializing in 
+                <span class="text-orange-500 font-semibold">Web Development</span>, 
+                <span class="text-orange-500 font-semibold">UI/UX Design</span>, 
+                <span class="text-orange-500 font-semibold">Graphic Design</span>, and 
+                <span class="text-orange-500 font-semibold">Data Analytics</span>.
+            </p>
+            <div class="flex items-center justify-center gap-2 text-xs font-mono" style="color: var(--text-muted);">
+                <i class="fa-solid fa-location-dot text-orange-500"></i> Ekiti, Nigeria
+            </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-4 mt-10" data-aos="fade-up" data-aos-delay="100">
+            <a href="my-cv.pdf" download="Adeoye_Beulah_CV.pdf" class="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white font-bold text-sm rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-orange-600/20 group">
+                Download Resume <i class="fa-solid fa-arrow-down text-xs transition-transform group-hover:translate-y-0.5"></i>
             </a>
+            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-transparent border border-gray-800 hover:border-orange-500/40 font-bold text-sm rounded-xl transition-all duration-300 hover:scale-105">
+                Start a Project <i class="fa-solid fa-arrow-right text-xs text-orange-500"></i>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl mt-24 pt-12 border-t" style="border-color: var(--card-border);" data-aos="fade-up" data-aos-delay="200">
+            <div class="flex flex-col items-center space-y-1">
+                <span class="tech-header text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">5.0+</span>
+                <span class="text-[10px] uppercase tracking-widest font-bold font-mono" style="color: var(--text-muted);">Years Experience</span>
+            </div>
+            <div class="flex flex-col items-center space-y-1">
+                <span class="tech-header text-4xl md:text-5xl font-black">30+</span>
+                <span class="text-[10px] uppercase tracking-widest font-bold font-mono" style="color: var(--text-muted);">Solutions Deployed</span>
+            </div>
+            <div class="flex flex-col items-center space-y-1">
+                <span class="tech-header text-4xl md:text-5xl font-black">10k+</span>
+                <span class="text-[10px] uppercase tracking-widest font-bold font-mono" style="color: var(--text-muted);">System Engagements</span>
+            </div>
         </div>
     </section>
-<section id="skills" class="py-24 px-4 max-w-5xl mx-auto border-t border-gray-800">
-    <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-xl md:text-2xl font-black mb-4 text-center tracking-widest uppercase text-gradient">Expertise Spectrum</h2>
-        <p class="text-gray-400 max-w-xl mx-auto text-sm md:text-base">A meticulous breakdown of technical execution capabilities across core technology disciplines.</p>
+
+    <div class="w-full max-w-5xl mx-auto overflow-hidden relative py-4 border-b" style="border-color: var(--card-border);" data-aos="fade-up">
+        <div class="flex gap-4 animate-marquee whitespace-nowrap">
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-php text-blue-400"></i> PHP</span>
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-react text-cyan-400"></i> React.js</span>
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-node-js text-emerald-400"></i> Node.js</span>
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-python text-amber-400"></i> Python (Advanced)</span>
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-solid fa-database text-indigo-400"></i> MySQL & SQL</span>
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-figma text-purple-400"></i> Figma UI</span>
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-solid fa-bezier-curve text-orange-400"></i> Illustrator</span>
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-solid fa-chart-bar text-rose-400"></i> Power BI</span>
+            
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-php text-blue-400"></i> PHP</span>
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-react text-cyan-400"></i> React.js</span>
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-node-js text-emerald-400"></i> Node.js</span>
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-python text-amber-400"></i> Python</span>
+        </div>
     </div>
-    
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <div class="glass-card p-6 rounded-2xl relative overflow-hidden group border border-gray-800/50 bg-gradient-to-b from-gray-900/40 to-black/40" data-aos="fade-up" data-aos-delay="100">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all"></div>
-            <div class="flex items-center gap-3 mb-5">
-                <div class="p-3 bg-blue-500/10 rounded-xl text-blue-400">
-                    <i class="fa-solid fa-code text-lg"></i>
+
+    <section id="experience" class="py-24 px-4 max-w-3xl mx-auto">
+        <div class="mb-16" data-aos="fade-up">
+            <h2 class="tech-header text-xl md:text-2xl font-black tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-500">Work Experience</h2>
+            <p class="text-xs font-mono text-gray-500 mt-2">Professional career timeline mapping engineering and analytics assets.</p>
+        </div>
+
+        <div class="relative border-l border-gray-800/60 ml-4 space-y-12">
+            <div class="relative pl-8 group" data-aos="fade-up">
+                <div class="absolute -left-[6px] top-1.5 w-3 h-3 rounded-full bg-orange-500 ring-4 ring-orange-950/40 transition-transform group-hover:scale-125"></div>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <span class="text-xs font-mono font-bold text-orange-500">2024 — 2025</span>
+                    <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-800/40 px-2.5 py-1 rounded border border-gray-800/40 text-gray-400">Remote</span>
                 </div>
-                <h3 class="font-bold text-lg text-white">Full-Stack Engineering</h3>
+                <h3 class="text-base font-bold transition-colors group-hover:text-orange-500">Data Analyst</h3>
+                <p class="text-xs font-mono text-gray-500 mb-3">Datahub Analytics</p>
+                <p class="text-xs leading-relaxed max-w-2xl" style="color: var(--text-muted);">
+                    Analyzed complex datasets to identify trends and provide actionable insights, utilizing robust data visualization tools to support informed business decision-making. Deployed predictive models using Python, SQL, Power BI, and Excel.
+                </p>
             </div>
-            <div class="flex flex-wrap gap-2">
-                <span class="text-xs font-mono bg-blue-950/40 text-blue-300 border border-blue-900/30 px-2.5 py-1 rounded-md">MERN Stack</span>
-                <span class="text-xs font-mono bg-blue-950/40 text-blue-300 border border-blue-900/30 px-2.5 py-1 rounded-md">React.js / Next.js</span>
-                <span class="text-xs font-mono bg-blue-950/40 text-blue-300 border border-blue-900/30 px-2.5 py-1 rounded-md">Node.js / Express</span>
-                <span class="text-xs font-mono bg-blue-950/40 text-blue-300 border border-blue-900/30 px-2.5 py-1 rounded-md">PHP (Server-Side)</span>
-                <span class="text-xs font-mono bg-blue-950/40 text-blue-300 border border-blue-900/30 px-2.5 py-1 rounded-md">JavaScript (ES6+)</span>
-                <span class="text-xs font-mono bg-blue-950/40 text-blue-300 border border-blue-900/30 px-2.5 py-1 rounded-md">RESTful APIs</span>
-                <span class="text-xs font-mono bg-blue-950/40 text-blue-300 border border-blue-900/30 px-2.5 py-1 rounded-md">Tailwind CSS Architecture</span>
-            </div>
-        </div>
 
-        <div class="glass-card p-6 rounded-2xl relative overflow-hidden group border border-gray-800/50 bg-gradient-to-b from-gray-900/40 to-black/40" data-aos="fade-up" data-aos-delay="200">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all"></div>
-            <div class="flex items-center gap-3 mb-5">
-                <div class="p-3 bg-cyan-500/10 rounded-xl text-cyan-400">
-                    <i class="fa-solid fa-chart-pie text-lg"></i>
+            <div class="relative pl-8 group" data-aos="fade-up">
+                <div class="absolute -left-[6px] top-1.5 w-3 h-3 rounded-full bg-gray-600 ring-4 ring-slate-950 transition-transform group-hover:scale-125 group-hover:bg-orange-500"></div>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <span class="text-xs font-mono font-bold text-gray-500 group-hover:text-orange-500">2021 — 2024</span>
+                    <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-800/40 px-2.5 py-1 rounded border border-gray-800/40 text-gray-400">Osun state</span>
                 </div>
-                <h3 class="font-bold text-lg text-white">Data Science & Analytics</h3>
-        <div class="col-span-1 md:col-span-2 flex justify-center items-center py-12" data-aos="zoom-in">
-            <a href="https://www.tiktok.com/@d_techguy01" target="_blank" onmousemove="handleLiquidMove(event)" class="liquid-btn group relative inline-flex items-center gap-3 px-8 py-4 font-bold text-white rounded-full transition-all duration-300 hover:scale-105 shadow-xl shadow-cyan-500/20">
-                <span class="relative z-10 flex items-center gap-3">
-                    <svg class="w-5 h-5 animate-bounce" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.61 4.2 1.13 1.2 2.69 1.95 4.34 2.13v3.91c-1.74-.06-3.42-.64-4.83-1.68-.12-.09-.23-.21-.38-.35v6.79c-.11 1.76-.74 3.48-1.85 4.82-1.46 1.68-3.66 2.63-5.89 2.5a7.481 7.481 0 01-6.62-5.46c-.55-2.06-.21-4.32.95-6.1a7.41 7.41 0 015.65-3.49v3.98c-1.57.17-3.03.98-3.87 2.33-.77 1.26-.85 2.89-.2 4.22.68 1.34 2.11 2.21 3.63 2.17 1.48.01 2.88-.85 3.47-2.2.31-.75.4-1.57.38-2.38V.02z"/>
-                    </svg>
-                    Click on my TikTok to view my work
-                </span>
-            </a>
-        </div>
-    </div>
-</section>
-
-                <div class="col-span-1 md:col-span-2 flex justify-center items-center py-12" data-aos="zoom-in">
-            <a href="https://www.tiktok.com/@d_techguy01" target="_blank" onmousemove="handleLiquidMove(event)" class="liquid-btn group relative inline-flex items-center gap-3 px-8 py-4 font-bold text-white rounded-full transition-all duration-300 hover:scale-105 shadow-xl shadow-cyan-500/20">
-                <span class="relative z-10 flex items-center gap-3">
-                    <svg class="w-5 h-5 animate-bounce" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.61 4.2 1.13 1.2 2.69 1.95 4.34 2.13v3.91c-1.74-.06-3.42-.64-4.83-1.68-.12-.09-.23-.21-.38-.35v6.79c-.11 1.76-.74 3.48-1.85 4.82-1.46 1.68-3.66 2.63-5.89 2.5a7.481 7.481 0 01-6.62-5.46c-.55-2.06-.21-4.32.95-6.1a7.41 7.41 0 015.65-3.49v3.98c-1.57.17-3.03.98-3.87 2.33-.77 1.26-.85 2.89-.2 4.22.68 1.34 2.11 2.21 3.63 2.17 1.48.01 2.88-.85 3.47-2.2.31-.75.4-1.57.38-2.38V.02z"/>
-                    </svg>
-                    Click on my TikTok to view my work
-                </span>
-            </a>
-        </div>
-    </div>
-</section>
-
-<section id="contact" class="py-24 px-4 max-w-3xl mx-auto border-t border-gray-800/60">
-    <div class="text-center mb-12" data-aos="fade-up">
-        <h2 class="tech-header text-2xl font-black mb-4 tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">SEND A MESSAGE</h2>
-        <p class="text-sm max-w-md mx-auto text-gray-400">Have an enterprise system layout, full-stack deployment requirement, or dynamic visual asset kit pipeline to build? Let's process the brief.</p>
-    </div>
-
-    <form id="portfolio-form" class="p-8 rounded-2xl border border-gray-800/40 bg-slate-900/20 transition-all duration-300 space-y-6 shadow-2xl" data-aos="fade-up" onsubmit="sendToWhatsApp(event)">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="space-y-2">
-                <label class="text-xs uppercase tracking-wider font-semibold text-gray-400">Name</label>
-                <input type="text" id="form-name" required placeholder="Your name" class="w-full px-4 py-3 bg-black/40 border border-gray-800/60 rounded-xl focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all text-sm text-slate-100">
+                <h3 class="text-base font-bold transition-colors group-hover:text-orange-500">Full-Stack Web Developer</h3>
+                <p class="text-xs font-mono text-gray-500 mb-3">Clik Cafe Solutions</p>
+                <p class="text-xs leading-relaxed max-w-2xl" style="color: var(--text-muted);">
+                    Developed and deployed custom web applications, ensuring high performance across all browsers and devices while maintaining clean, scalable codebase logic. Constructed modules via VS Code, React, Node.js, and SQL.
+                </p>
             </div>
-            <div class="space-y-2">
-                <label class="text-xs uppercase tracking-wider font-semibold text-gray-400">Email</label>
-                <input type="email" id="form-email" required placeholder="Your email" class="w-full px-4 py-3 bg-black/40 border border-gray-800/60 rounded-xl focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all text-sm text-slate-100">
+
+            <div class="relative pl-8 group" data-aos="fade-up">
+                <div class="absolute -left-[6px] top-1.5 w-3 h-3 rounded-full bg-gray-600 ring-4 ring-slate-950 transition-transform group-hover:scale-125 group-hover:bg-orange-500"></div>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <span class="text-xs font-mono font-bold text-gray-500 group-hover:text-orange-400">2021 — 2023</span>
+                    <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-800/40 px-2.5 py-1 rounded border border-gray-800/40 text-gray-400">Osun state</span>
+                </div>
+                <h3 class="text-base font-bold transition-colors group-hover:text-orange-500">UI/UX Designer</h3>
+                <p class="text-xs font-mono text-gray-500 mb-3">Click Cafe solutions</p>
+                <p class="text-xs leading-relaxed max-w-2xl" style="color: var(--text-muted);">
+                    Designed user-centric interfaces and high-fidelity prototypes, focusing on improving user journey flows and visual consistency for digital products using Figma and Adobe XD.
+                </p>
+            </div>
+
+            <div class="relative pl-8 group" data-aos="fade-up">
+                <div class="absolute -left-[6px] top-1.5 w-3 h-3 rounded-full bg-gray-600 ring-4 ring-slate-950 transition-transform group-hover:scale-125 group-hover:bg-orange-500"></div>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <span class="text-xs font-mono font-bold text-gray-500 group-hover:text-orange-400">2019 — Present</span>
+                    <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-800/40 px-2.5 py-1 rounded border border-gray-800/40 text-gray-400">Remote</span>
+                </div>
+                <h3 class="text-base font-bold transition-colors group-hover:text-orange-500">Independent Graphic Designer</h3>
+                <p class="text-xs font-mono text-gray-500 mb-3">Freelance</p>
+                <p class="text-xs leading-relaxed max-w-2xl" style="color: var(--text-muted);">
+                    Executed diverse brand assets and large-scale visual layouts for corporate and student organizations utilizing Photoshop, Illustrator, and Premiere Pro.
+                </p>
             </div>
         </div>
-        <div class="space-y-2">
-            <label class="text-xs uppercase tracking-wider font-semibold text-gray-400">Subject</label>
-            <input type="text" id="form-subject" required placeholder="Subject" class="w-full px-4 py-3 bg-black/40 border border-gray-800/60 rounded-xl focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all text-sm text-slate-100">
+    </section>
+
+    <section class="py-20 px-4 max-w-3xl mx-auto border-t" style="border-color: var(--card-border);" data-aos="fade-up">
+        <div class="mb-10">
+            <h3 class="tech-header text-sm tracking-widest text-gray-400 uppercase">My Favorite Tools</h3>
         </div>
-        <div class="space-y-2">
-            <label class="text-xs uppercase tracking-wider font-semibold text-gray-400">Message</label>
-            <textarea id="form-message" required rows="5" placeholder="Your message" class="w-full px-4 py-3 bg-black/40 border border-gray-800/60 rounded-xl focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all text-sm text-slate-100 resize-none"></textarea>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 font-mono text-xs">
+            <div class="p-4 bg-slate-900/10 dark:bg-slate-900/30 border border-gray-800/40 rounded-xl flex items-center gap-3"><i class="fa-solid fa-code text-blue-400"></i> VS Code</div>
+            <div class="p-4 bg-slate-900/10 dark:bg-slate-900/30 border border-gray-800/40 rounded-xl flex items-center gap-3"><i class="fa-brands fa-figma text-purple-400"></i> Figma UI</div>
+            <div class="p-4 bg-slate-900/10 dark:bg-slate-900/30 border border-gray-800/40 rounded-xl flex items-center gap-3"><i class="fa-solid fa-bezier-curve text-orange-400"></i> Illustrator</div>
+            <div class="p-4 bg-slate-900/10 dark:bg-slate-900/30 border border-gray-800/40 rounded-xl flex items-center gap-3"><i class="fa-solid fa-image text-sky-400"></i> Photoshop</div>
+            <div class="p-4 bg-slate-900/10 dark:bg-slate-900/30 border border-gray-800/40 rounded-xl flex items-center gap-3"><i class="fa-brands fa-github"></i> GitHub</div>
+            <div class="p-4 bg-slate-900/10 dark:bg-slate-900/30 border border-gray-800/40 rounded-xl flex items-center gap-3"><i class="fa-solid fa-chart-line text-emerald-400"></i> Power BI</div>
         </div>
-        
-        <button type="submit" onmousemove="handleLiquidMove(event)" class="liquid-btn w-full py-4 text-white font-bold rounded-xl flex justify-center items-center gap-2 hover:scale-[1.01] active:scale-[0.99] transition-all shadow-lg shadow-blue-500/20">
-            <span class="relative z-10 flex items-center gap-2">
+    </section>
+
+    <section class="py-12 px-4 max-w-3xl mx-auto" data-aos="zoom-in">
+        <div class="p-8 bg-gradient-to-r from-orange-600 to-amber-600 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl shadow-orange-600/10">
+            <div class="text-center md:text-left">
+                <span class="text-[10px] tracking-widest uppercase font-mono bg-white/20 px-2.5 py-1 rounded text-white font-bold">Open to Work</span>
+                <h3 class="tech-header text-xl md:text-2xl font-black text-white mt-3">Got a project? Let's talk.</h3>
+            </div>
+            <div class="flex items-center gap-3 font-mono text-xs">
+                <a href="#contact" class="px-5 py-3 bg-white text-orange-700 font-bold uppercase rounded-xl transition-transform hover:scale-105">Start Project</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 px-4 max-w-3xl mx-auto border-t" style="border-color: var(--card-border);">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="tech-header text-xl font-black mb-3 tracking-widest">SEND A MESSAGE</h2>
+        </div>
+
+        <form id="portfolio-form" class="p-6 md:p-8 rounded-2xl border transition-all duration-300 space-y-6 shadow-2xl" style="background: var(--card-bg); border-color: var(--card-border);" data-aos="fade-up" onsubmit="sendToWhatsApp(event)">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                    <label class="text-xs uppercase tracking-wider font-semibold font-mono text-gray-500">Name</label>
+                    <input type="text" id="form-name" required placeholder="Your name" class="w-full px-4 py-3 bg-black/10 dark:bg-black/40 border border-gray-800/40 rounded-xl focus:outline-none focus:border-orange-500 transition-all text-sm font-mono">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs uppercase tracking-wider font-semibold font-mono text-gray-500">Email</label>
+                    <input type="email" id="form-email" required placeholder="Your email" class="w-full px-4 py-3 bg-black/10 dark:bg-black/40 border border-gray-800/40 rounded-xl focus:outline-none focus:border-orange-500 transition-all text-sm font-mono">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <label class="text-xs uppercase tracking-wider font-semibold font-mono text-gray-500">Subject</label>
+                <input type="text" id="form-subject" required placeholder="Subject" class="w-full px-4 py-3 bg-black/10 dark:bg-black/40 border border-gray-800/40 rounded-xl focus:outline-none focus:border-orange-500 transition-all text-sm font-mono">
+            </div>
+            <div class="space-y-2">
+                <label class="text-xs uppercase tracking-wider font-semibold font-mono text-gray-500">Message</label>
+                <textarea id="form-message" required rows="5" placeholder="Your message" class="w-full px-4 py-3 bg-black/10 dark:bg-black/40 border border-gray-800/40 rounded-xl focus:outline-none focus:border-orange-500 transition-all text-sm resize-none font-mono"></textarea>
+            </div>
+            
+            <button type="submit" class="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold text-sm rounded-xl flex justify-center items-center gap-2 hover:scale-[1.01] transition-all shadow-lg shadow-orange-600/20 font-mono">
                 Send Message <i class="fa-solid fa-paper-plane text-xs"></i>
-            </span>
-        </button>
+            </button>
+        </form>
     </form>
 
-    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 text-center" data-aos="fade-up">
-        <a href="mailto:beulahiremide@gmail.com" class="glass-card p-4 rounded-xl flex items-center justify-center gap-3 text-sm text-gray-400">
-            <i class="fa-regular fa-envelope text-cyan-400"></i> beulahiremide@gmail.com
-        </a>
-        <a href="https://wa.me/2348088009455" target="_blank" class="glass-card p-4 rounded-xl flex items-center justify-center gap-3 text-sm text-gray-400">
-            <i class="fa-brands fa-whatsapp text-emerald-400"></i> WhatsApp 1
-        </a>
-        <a href="https://wa.me/2349164601201" target="_blank" class="glass-card p-4 rounded-xl flex items-center justify-center gap-3 text-sm text-gray-400">
-            <i class="fa-brands fa-whatsapp text-emerald-400"></i> WhatsApp 2
-        </a>
-    </div>
-</section>
+    <footer class="pt-20 pb-12 border-t border-gray-900 bg-slate-950/10 px-4">
+        <div class="max-w-3xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
+            <div class="text-center md:text-left">
+                <h3 class="tech-header text-lg font-black tracking-wider text-orange-500">MACA</h3>
+                <p class="text-xs font-mono text-gray-500 mt-1 max-w-xs">Building scalable web architecture and pixel-perfect digital identities.</p>
+            </div>
 
-<footer class="py-12 border-t border-gray-900 text-center text-xs tracking-widest uppercase text-gray-500 font-mono">
-    <p>© 2026 BEULAH IREMIDE ADEOYE (MACA) ALL RIGHT RESERVED.</p>
-</footer>
-
-<div id="success-modal" class="fixed inset-0 z-50 invisible opacity-0 flex justify-center items-center p-4 bg-black/60 backdrop-blur-md transition-all duration-500">
-    <div class="max-w-md w-full p-8 rounded-2xl border border-white/10 text-center scale-75 opacity-0 transition-all duration-500 transform modal-content shadow-2xl bg-slate-950">
-        <div class="w-16 h-16 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex justify-center items-center mx-auto mb-6 shadow-lg shadow-cyan-400/30">
-            <i class="fa-solid fa-check text-white text-2xl"></i>
+            <div class="flex items-center gap-3">
+                <a href="https://github.com/dtechguy01" target="_blank" class="w-10 h-10 rounded-xl bg-slate-900/40 border border-gray-800/40 hover:border-orange-500/40 hover:text-orange-500 flex items-center justify-center text-gray-400 transition-all"><i class="fa-brands fa-github text-sm"></i></a>
+                <a href="https://x.com/dtechguy01" target="_blank" class="w-10 h-10 rounded-xl bg-slate-900/40 border border-gray-800/40 hover:border-orange-500/40 hover:text-orange-500 flex items-center justify-center text-gray-400 transition-all"><i class="fa-brands fa-x-twitter text-sm"></i></a>
+                <a href="https://www.tiktok.com/@d_techguy01" target="_blank" class="w-10 h-10 rounded-xl bg-slate-900/40 border border-gray-800/40 hover:border-orange-500/40 hover:text-orange-500 flex items-center justify-center text-gray-400 transition-all"><i class="fa-brands fa-tiktok text-sm"></i></a>
+                <a href="mailto:beulahiremide@gmail.com" class="w-10 h-10 rounded-xl bg-slate-900/40 border border-gray-800/40 hover:border-orange-500/40 hover:text-orange-500 flex items-center justify-center text-gray-400 transition-all"><i class="fa-regular fa-envelope text-sm"></i></a>
+            </div>
         </div>
-        <h3 class="tech-header text-xl font-bold text-white mb-2">TRANSMISSION COMPLETE</h3>
-        <p class="text-sm text-gray-400 mb-6">Your messages has been sent you'll be notified when we sees it or we will get back to you</p>
-        <button onclick="closeSuccessModal()" class="liquid-btn px-6 py-2.5 text-white text-xs font-bold uppercase rounded-lg tracking-wider">Close Console</button>
+
+        <div class="max-w-3xl mx-auto border-t border-gray-900/60 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] tracking-widest text-gray-600 font-mono uppercase text-center">
+            <p>© 2026 BEULAH IREMIDE ADEOYE (MACA) ALL RIGHT RESERVED.</p>
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-orange-500 flex items-center gap-1.5 transition-colors">
+                Back to Top <i class="fa-solid fa-arrow-up"></i>
+            </button>
+        </div>
+    </footer>
+
+    <div id="success-modal" class="fixed inset-0 z-50 invisible opacity-0 flex justify-center items-center p-4 bg-black/70 backdrop-blur-md transition-all duration-500">
+        <div class="max-w-md w-full p-8 rounded-2xl border border-gray-800 bg-slate-950 text-center scale-75 opacity-0 transition-all duration-500 transform modal-content shadow-2xl font-mono text-white">
+            <div class="w-14 h-14 bg-orange-600 rounded-full flex justify-center items-center mx-auto mb-6 shadow-lg shadow-orange-600/20">
+                <i class="fa-solid fa-check text-white text-xl"></i>
+            </div>
+            <h3 class="tech-header text-base font-bold mb-2">TRANSMISSION COMPLETE</h3>
+            <p class="text-xs text-gray-400 mb-6 leading-relaxed">Your messages has been sent you'll be notified when we sees it or we will get back to you</p>
+            <button onclick="closeSuccessModal()" class="px-6 py-2.5 bg-orange-600 hover:bg-orange-700 text-white text-xs font-bold uppercase rounded-lg tracking-wider transition-colors">Close Console</button>
+        </div>
     </div>
-</div>
 
-<script src="https://unpkg.com/lucide@latest"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    lucide.createIcons();
-    AOS.init({ once: true, offset: 100, duration: 800, easing: 'ease-out-cubic' });
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        lucide.createIcons();
+        AOS.init({ once: true, offset: 100, duration: 800, easing: 'ease-out-cubic' });
 
-    // Liquid Button Coordinates Tracker
-    function handleLiquidMove(e) {
-        const btn = e.currentTarget;
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        btn.style.setProperty('--x', `${x}px`);
-        btn.style.setProperty('--y', `${y}px`);
-    }
+        // Dual Theme Logic Engine
+        const toggleBtn = document.getElementById('theme-toggle');
+        const toggleIcon = document.getElementById('theme-icon');
+        const htmlEl = document.documentElement;
 
-    // Process Form and Redirect Explicitly to WhatsApp API Pipeline
-    function sendToWhatsApp(e) {
-        e.preventDefault();
-        
-        const name = document.getElementById('form-name').value;
-        const email = document.getElementById('form-email').value;
-        const subject = document.getElementById('form-subject').value;
-        const message = document.getElementById('form-message').value;
+        function applyTheme(theme) {
+            if (theme === 'light') {
+                htmlEl.classList.add('light');
+                toggleIcon.className = 'fa-solid fa-sun';
+            } else {
+                htmlEl.classList.remove('light');
+                toggleIcon.className = 'fa-solid fa-moon';
+            }
+            localStorage.setItem('portfolio-theme', theme);
+        }
 
-        // Construct formatting layout text for WhatsApp
-        const secureBrief = `*New Brief Received*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Subject:* ${subject}%0A*Message:* ${message}`;
-        const whatsappEndpoint = `https://wa.me/2348088009455?text=${secureBrief}`;
+        const savedTheme = localStorage.getItem('portfolio-theme');
+        const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
-        // Trigger notification popup console modal overlay
-        const modal = document.getElementById('success-modal');
-        const content = modal.querySelector('.modal-content');
-        
-        modal.classList.remove('invisible', 'opacity-0');
-        setTimeout(() => {
-            content.classList.remove('scale-75', 'opacity-0');
-            content.classList.add('scale-100', 'opacity-100');
-        }, 50);
+        applyTheme(savedTheme || (systemPrefersLight ? 'light' : 'dark'));
+        toggleBtn.addEventListener('click', () => applyTheme(htmlEl.classList.contains('light') ? 'dark' : 'light'));
 
-        document.getElementById('portfolio-form').reset();
+        // WhatsApp Messaging Engine
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            const name = document.getElementById('form-name').value;
+            const email = document.getElementById('form-email').value;
+            const subject = document.getElementById('form-subject').value;
+            const message = document.getElementById('form-message').value;
 
-        // Redirect user tab to WhatsApp workspace after modal displays
-        setTimeout(() => {
-            window.open(whatsappEndpoint, '_blank');
-        }, 1500);
-    }
+            const secureBrief = `*New Portfolio Message*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Subject:* ${subject}%0A*Message:* ${message}`;
+            const whatsappEndpoint = `https://wa.me/2348088009455?text=${secureBrief}`;
 
-    function closeSuccessModal() {
-        const modal = document.getElementById('success-modal');
-        const content = modal.querySelector('.modal-content');
-        
-        content.classList.remove('scale-100', 'opacity-100');
-        content.classList.add('scale-75', 'opacity-0');
-        setTimeout(() => {
-            modal.classList.add('invisible', 'opacity-0');
-        }, 400);
-    }
-</script>
+            const modal = document.getElementById('success-modal');
+            const content = modal.querySelector('.modal-content');
+            
+            modal.classList.remove('invisible', 'opacity-0');
+            setTimeout(() => {
+                content.classList.remove('scale-75', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 50);
+
+            document.getElementById('portfolio-form').reset();
+            setTimeout(() => { window.open(whatsappEndpoint, '_blank'); }, 1200);
+        }
+
+        function closeSuccessModal() {
+            const modal = document.getElementById('success-modal');
+            const content = modal.querySelector('.modal-content');
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-75', 'opacity-0');
+            setTimeout(() => { modal.add('invisible', 'opacity-0'); }, 400);
+        }
+    </script>
 </body>
-</html>
