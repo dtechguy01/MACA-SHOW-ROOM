@@ -12,41 +12,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyberCyan: '#00F2FE',
+                        cyberBlue: '#4FACFE',
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        /* Typography Architecture */
+        /* Base Typography Configuration */
         body { 
             font-family: 'JetBrains Mono', monospace; 
             transition: background-color 0.4s ease, color 0.4s ease;
         }
         .tech-header { font-family: 'Orbitron', sans-serif; tracking-widest; }
 
-        /* Structural Theme Variable Matrices */
+        /* Strict System Variable Color Mapping Matrices */
         :root {
             --bg-color: #060913;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --card-bg: rgba(15, 23, 42, 0.45);
             --card-border: rgba(255, 255, 255, 0.06);
-            --border-accent: rgba(249, 115, 22, 0.2);
-            --bg-gradient: radial-gradient(at 0% 0%, rgba(249, 115, 22, 0.08) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(30, 41, 59, 0.5) 0px, transparent 50%);
+            --border-accent: rgba(0, 242, 254, 0.2);
+            --bg-gradient: radial-gradient(at 0% 0%, rgba(0, 242, 254, 0.05) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(30, 41, 59, 0.4) 0px, transparent 50%);
+            --input-bg: rgba(0, 0, 0, 0.4);
+            --text-nav: #e2e8f0;
         }
         html.light {
             --bg-color: #f8fafc;
             --text-main: #0f172a;
             --text-muted: #475569;
-            --card-bg: rgba(255, 255, 255, 0.75);
+            --card-bg: rgba(255, 255, 255, 0.8);
             --card-border: rgba(15, 23, 42, 0.08);
-            --border-accent: rgba(249, 115, 22, 0.4);
-            --bg-gradient: radial-gradient(at 0% 0%, rgba(249, 115, 22, 0.05) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(226, 232, 240, 0.8) 0px, transparent 50%);
+            --border-accent: rgba(0, 242, 254, 0.4);
+            --bg-gradient: radial-gradient(at 0% 0%, rgba(0, 242, 254, 0.04) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(226, 232, 240, 0.8) 0px, transparent 50%);
+            --input-bg: rgba(255, 255, 255, 0.9);
+            --text-nav: #0f172a;
         }
 
         body { background-color: var(--bg-color); color: var(--text-main); background-image: var(--bg-gradient); overflow-x: hidden; }
 
-        /* Liquid Button Hover Engines */
+        /* Liquid Interactive Cyber Button Engines */
         .liquid-btn {
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, #ea580c, #f59e0b);
+            background: linear-gradient(135deg, #00F2FE, #4FACFE);
             backdrop-filter: blur(12px);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -54,7 +72,7 @@
             content: '';
             position: absolute;
             top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, transparent 60%);
             animation: liquidMesh 6s infinite alternate linear;
             pointer-events: none;
             z-index: 0;
@@ -67,7 +85,7 @@
             100% { transform: rotate(360deg) translate(-20px, 20px); }
         }
 
-        /* Glassmorphism Structural Classes */
+        /* Glassmorphism Configuration Structs */
         .glass-card {
             background: var(--card-bg);
             backdrop-filter: blur(14px);
@@ -76,71 +94,68 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .glass-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-4px);
             border-color: var(--border-accent);
-            box-shadow: 0 20px 40px -15px rgba(249, 115, 22, 0.15);
+            box-shadow: 0 20px 40px -15px rgba(0, 242, 254, 0.15);
         }
 
-        /* Marquee Motion Mechanics */
+        /* Infinite Marquee Layout Loops Mechanics */
         @keyframes marquee {
             0% { transform: translateX(0%); }
             100% { transform: translateX(-50%); }
         }
-        .animate-marquee {
-            display: flex;
-            width: max-content;
-            animation: marquee 25s linear infinite;
-        }
+        .marquee-container { display: flex; width: max-content; animation: marquee 30s linear infinite; }
+        .marquee-container:hover { animation-play-state: paused; }
     </style>
 </head>
 <body>
 
     <nav class="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-2xl glass-card rounded-full px-6 py-3.5 flex justify-between items-center shadow-2xl">
-        <a href="#" class="tech-header text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500 tracking-wide">MACA</a>
-        <div class="flex items-center gap-5 text-xs md:text-sm font-medium tracking-wide">
-            <a href="#about" class="hover:text-orange-500 transition-colors">About</a>
-            <a href="#experience" class="hover:text-orange-500 transition-colors">Experience</a>
-            <a href="#contact" class="hover:text-orange-500 transition-colors">Contact</a>
+        <a href="#" class="tech-header text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan to-cyberBlue tracking-wide">MACA</a>
+        <div class="flex items-center gap-5 text-xs md:text-sm font-medium tracking-wide" style="color: var(--text-nav);">
+            <a href="#about" class="hover:text-cyberCyan transition-colors">About</a>
+            <a href="#experience" class="hover:text-cyberCyan transition-colors">Experience</a>
+            <a href="#contact" class="hover:text-cyberCyan transition-colors">Contact</a>
 
-            <button id="theme-toggle" type="button" class="p-2 rounded-xl bg-slate-800/20 hover:bg-orange-500/10 border border-orange-500/20 text-orange-500 transition-all duration-300">
+            <button id="theme-toggle" type="button" class="p-2 rounded-xl bg-slate-500/10 hover:bg-cyberCyan/10 border border-cyberCyan/20 text-cyberCyan transition-all duration-300">
                 <i id="theme-icon" class="fa-solid fa-moon"></i>
             </button>
         </div>
     </nav>
 
     <section id="about" class="pt-36 pb-24 px-4 max-w-5xl mx-auto flex flex-col items-center text-center relative overflow-hidden">
-        <div class="relative w-44 h-44 md:w-52 md:h-52 mb-8 rounded-2xl overflow-hidden glass-card p-2 flex items-center justify-center shadow-2xl group" data-aos="zoom-in">
-            <img src="maca-avatar.png" alt="MACA Branding System" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105">
+        <div class="w-40 h-40 md:w-48 md:h-48 mb-8 rounded-2xl glass-card p-2 flex items-center justify-center shadow-2xl relative z-20 group" data-aos="zoom-in">
+            <img src="maca-avatar.png" alt="MACA System Branding Asset" class="w-full h-full object-cover rounded-xl">
         </div>
 
-        <div class="space-y-4 max-w-3xl" data-aos="fade-up">
+        <div class="space-y-4 max-w-3xl relative z-20" data-aos="fade-up">
             <h1 class="tech-header text-4xl md:text-6xl font-black tracking-tight">
-                Adeoye Beulah <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Iremide</span>
+                Adeoye Beulah <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan to-cyberBlue">Iremide</span>
             </h1>
             <p class="text-sm md:text-base font-medium max-w-2xl mx-auto leading-relaxed" style="color: var(--text-muted);">
                 Multidisciplinary Tech Professional specializing in 
-                <span class="text-orange-500 font-semibold">Web Development</span>, 
-                <span class="text-orange-500 font-semibold">UI/UX Design</span>, 
-                <span class="text-orange-500 font-semibold">Graphic Design</span>, and 
-                <span class="text-orange-500 font-semibold">Data Analytics</span>.
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan to-cyberBlue font-bold">Web Development</span>, 
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan to-cyberBlue font-bold">UI/UX Design</span>, 
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan to-cyberBlue font-bold">Graphic Design</span>, and 
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan to-cyberBlue font-bold">Data Analytics</span>.
             </p>
             <div class="flex items-center justify-center gap-2 text-xs font-mono" style="color: var(--text-muted);">
-                <i class="fa-solid fa-location-dot text-orange-500"></i> Ekiti, Nigeria
+                <i class="fa-solid fa-location-dot text-cyberCyan"></i> Ekiti, Nigeria
             </div>
         </div>
 
-        <div class="flex flex-wrap items-center justify-center gap-4 mt-10" data-aos="fade-up" data-aos-delay="100">
-            <a href="my-cv.pdf" download="Adeoye_Beulah_CV.pdf" class="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white font-bold text-sm rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-orange-600/20 group">
+        <div class="flex flex-wrap items-center justify-center gap-4 mt-10 relative z-20" data-aos="fade-up" data-aos-delay="100">
+            <a href="my-cv.pdf" download="Adeoye_Beulah_CV.pdf" class="liquid-btn inline-flex items-center gap-2 px-6 py-3 text-white font-bold text-sm rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-cyan-500/20 group">
                 Download Resume <i class="fa-solid fa-arrow-down text-xs transition-transform group-hover:translate-y-0.5"></i>
             </a>
-            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-transparent border border-gray-800 hover:border-orange-500/40 font-bold text-sm rounded-xl transition-all duration-300 hover:scale-105">
-                Start a Project <i class="fa-solid fa-arrow-right text-xs text-orange-500"></i>
+            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-transparent border rounded-xl font-bold text-sm transition-all duration-300 hover:scale-105" style="border-color: var(--card-border); color: var(--text-main);">
+                Start a Project <i class="fa-solid fa-arrow-right text-xs text-cyberCyan"></i>
             </a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl mt-24 pt-12 border-t" style="border-color: var(--card-border);" data-aos="fade-up" data-aos-delay="200">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl mt-24 pt-12 border-t relative z-20" style="border-color: var(--card-border);" data-aos="fade-up" data-aos-delay="200">
             <div class="flex flex-col items-center space-y-1">
-                <span class="tech-header text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">5.0+</span>
+                <span class="tech-header text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan to-cyberBlue">5.0+</span>
                 <span class="text-[10px] uppercase tracking-widest font-bold font-mono" style="color: var(--text-muted);">Years Experience</span>
             </div>
             <div class="flex flex-col items-center space-y-1">
@@ -154,38 +169,42 @@
         </div>
     </section>
 
-    <div class="w-full max-w-5xl mx-auto overflow-hidden relative py-4 border-b" style="border-color: var(--card-border);" data-aos="fade-up">
-        <div class="flex gap-4 animate-marquee whitespace-nowrap">
-            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-php text-blue-400"></i> PHP</span>
-            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-react text-cyan-400"></i> React.js</span>
-            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-node-js text-emerald-400"></i> Node.js</span>
-            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-python text-amber-400"></i> Python (Advanced)</span>
-            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-solid fa-database text-indigo-400"></i> MySQL & SQL</span>
-            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-figma text-purple-400"></i> Figma UI</span>
-            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-solid fa-bezier-curve text-orange-400"></i> Illustrator</span>
-            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-solid fa-chart-bar text-rose-400"></i> Power BI</span>
+    <div class="w-full overflow-hidden relative py-6 border-b border-t border-slate-500/10" style="background: rgba(15, 23, 42, 0.05);" data-aos="fade-up">
+        <div class="marquee-container gap-4">
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 glass-card text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-php text-blue-400"></i> PHP</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 glass-card text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-react text-cyan-400"></i> React.js</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 glass-card text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-node-js text-emerald-400"></i> Node.js</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 glass-card text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-python text-amber-400"></i> Python (Advanced)</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 glass-card text-xs font-mono rounded-full text-gray-400"><i class="fa-solid fa-database text-indigo-400"></i> MySQL Database</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 glass-card text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-figma text-purple-400"></i> Figma Design UI</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 glass-card text-xs font-mono rounded-full text-gray-400"><i class="fa-solid fa-bezier-curve text-orange-400"></i> Adobe Illustrator</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 glass-card text-xs font-mono rounded-full text-gray-400"><i class="fa-solid fa-chart-bar text-rose-400"></i> Power BI Metrics</span>
             
-            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-php text-blue-400"></i> PHP</span>
-            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-react text-cyan-400"></i> React.js</span>
-            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-node-js text-emerald-400"></i> Node.js</span>
-            <span class="inline-flex items-center gap-2 px-4 py-2 bg-slate-900/10 dark:bg-slate-900/40 border border-gray-800/40 text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-python text-amber-400"></i> Python</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 glass-card text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-php text-blue-400"></i> PHP</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 glass-card text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-react text-cyan-400"></i> React.js</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 glass-card text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-node-js text-emerald-400"></i> Node.js</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 glass-card text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-python text-amber-400"></i> Python (Advanced)</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 glass-card text-xs font-mono rounded-full text-gray-400"><i class="fa-solid fa-database text-indigo-400"></i> MySQL Database</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 glass-card text-xs font-mono rounded-full text-gray-400"><i class="fa-brands fa-figma text-purple-400"></i> Figma Design UI</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 glass-card text-xs font-mono rounded-full text-gray-400"><i class="fa-solid fa-bezier-curve text-orange-400"></i> Adobe Illustrator</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 glass-card text-xs font-mono rounded-full text-gray-400"><i class="fa-solid fa-chart-bar text-rose-400"></i> Power BI Metrics</span>
         </div>
     </div>
 
     <section id="experience" class="py-24 px-4 max-w-3xl mx-auto">
         <div class="mb-16" data-aos="fade-up">
-            <h2 class="tech-header text-xl md:text-2xl font-black tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-500">Work Experience</h2>
-            <p class="text-xs font-mono text-gray-500 mt-2">Professional career timeline mapping engineering and analytics assets.</p>
+            <h2 class="tech-header text-xl md:text-2xl font-black tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan to-cyberBlue">Work Experience</h2>
+            <p class="text-xs font-mono text-gray-500 mt-2">Professional tracking nodes for data pipelines and brand architectures.</p>
         </div>
 
-        <div class="relative border-l border-gray-800/60 ml-4 space-y-12">
+        <div class="relative border-l border-slate-500/20 ml-4 space-y-12">
             <div class="relative pl-8 group" data-aos="fade-up">
-                <div class="absolute -left-[6px] top-1.5 w-3 h-3 rounded-full bg-orange-500 ring-4 ring-orange-950/40 transition-transform group-hover:scale-125"></div>
+                <div class="absolute -left-[6px] top-1.5 w-3 h-3 rounded-full bg-cyberCyan ring-4 ring-cyberCyan/20 transition-transform group-hover:scale-125"></div>
                 <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                    <span class="text-xs font-mono font-bold text-orange-500">2024 — 2025</span>
-                    <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-800/40 px-2.5 py-1 rounded border border-gray-800/40 text-gray-400">Remote</span>
+                    <span class="text-xs font-mono font-bold text-cyberCyan">2024 — 2025</span>
+                    <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-500/10 px-2.5 py-1 rounded border border-slate-500/10 text-gray-400">Remote</span>
                 </div>
-                <h3 class="text-base font-bold transition-colors group-hover:text-orange-500">Data Analyst</h3>
+                <h3 class="text-base font-bold transition-colors group-hover:text-cyberCyan">Data Analyst</h3>
                 <p class="text-xs font-mono text-gray-500 mb-3">Datahub Analytics</p>
                 <p class="text-xs leading-relaxed max-w-2xl" style="color: var(--text-muted);">
                     Analyzed complex datasets to identify trends and provide actionable insights, utilizing robust data visualization tools to support informed business decision-making. Deployed predictive models using Python, SQL, Power BI, and Excel.
@@ -193,12 +212,12 @@
             </div>
 
             <div class="relative pl-8 group" data-aos="fade-up">
-                <div class="absolute -left-[6px] top-1.5 w-3 h-3 rounded-full bg-gray-600 ring-4 ring-slate-950 transition-transform group-hover:scale-125 group-hover:bg-orange-500"></div>
+                <div class="absolute -left-[6px] top-1.5 w-3 h-3 rounded-full bg-slate-600 ring-4 ring-slate-500/10 transition-transform group-hover:scale-125 group-hover:bg-cyberCyan"></div>
                 <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                    <span class="text-xs font-mono font-bold text-gray-500 group-hover:text-orange-500">2021 — 2024</span>
-                    <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-800/40 px-2.5 py-1 rounded border border-gray-800/40 text-gray-400">Osun state</span>
+                    <span class="text-xs font-mono font-bold text-gray-500 group-hover:text-cyberCyan">2021 — 2024</span>
+                    <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-500/10 px-2.5 py-1 rounded border border-slate-500/10 text-gray-400">Osun state</span>
                 </div>
-                <h3 class="text-base font-bold transition-colors group-hover:text-orange-500">Full-Stack Web Developer</h3>
+                <h3 class="text-base font-bold transition-colors group-hover:text-cyberCyan">Full-Stack Web Developer</h3>
                 <p class="text-xs font-mono text-gray-500 mb-3">Clik Cafe Solutions</p>
                 <p class="text-xs leading-relaxed max-w-2xl" style="color: var(--text-muted);">
                     Developed and deployed custom web applications, ensuring high performance across all browsers and devices while maintaining clean, scalable codebase logic. Constructed modules via VS Code, React, Node.js, and SQL.
@@ -206,12 +225,12 @@
             </div>
 
             <div class="relative pl-8 group" data-aos="fade-up">
-                <div class="absolute -left-[6px] top-1.5 w-3 h-3 rounded-full bg-gray-600 ring-4 ring-slate-950 transition-transform group-hover:scale-125 group-hover:bg-orange-500"></div>
+                <div class="absolute -left-[6px] top-1.5 w-3 h-3 rounded-full bg-slate-600 ring-4 ring-slate-500/10 transition-transform group-hover:scale-125 group-hover:bg-cyberCyan"></div>
                 <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                    <span class="text-xs font-mono font-bold text-gray-500 group-hover:text-orange-400">2021 — 2023</span>
-                    <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-800/40 px-2.5 py-1 rounded border border-gray-800/40 text-gray-400">Osun state</span>
+                    <span class="text-xs font-mono font-bold text-gray-500 group-hover:text-cyberCyan">2021 — 2023</span>
+                    <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-500/10 px-2.5 py-1 rounded border border-slate-500/10 text-gray-400">Osun state</span>
                 </div>
-                <h3 class="text-base font-bold transition-colors group-hover:text-orange-500">UI/UX Designer</h3>
+                <h3 class="text-base font-bold transition-colors group-hover:text-cyberCyan">UI/UX Designer</h3>
                 <p class="text-xs font-mono text-gray-500 mb-3">Click Cafe solutions</p>
                 <p class="text-xs leading-relaxed max-w-2xl" style="color: var(--text-muted);">
                     Designed user-centric interfaces and high-fidelity prototypes, focusing on improving user journey flows and visual consistency for digital products using Figma and Adobe XD.
@@ -219,12 +238,12 @@
             </div>
 
             <div class="relative pl-8 group" data-aos="fade-up">
-                <div class="absolute -left-[6px] top-1.5 w-3 h-3 rounded-full bg-gray-600 ring-4 ring-slate-950 transition-transform group-hover:scale-125 group-hover:bg-orange-500"></div>
+                <div class="absolute -left-[6px] top-1.5 w-3 h-3 rounded-full bg-slate-600 ring-4 ring-slate-500/10 transition-transform group-hover:scale-125 group-hover:bg-cyberCyan"></div>
                 <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                    <span class="text-xs font-mono font-bold text-gray-500 group-hover:text-orange-400">2019 — Present</span>
-                    <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-800/40 px-2.5 py-1 rounded border border-gray-800/40 text-gray-400">Remote</span>
+                    <span class="text-xs font-mono font-bold text-gray-500 group-hover:text-cyberCyan">2019 — Present</span>
+                    <span class="text-[10px] uppercase font-mono tracking-wider bg-slate-500/10 px-2.5 py-1 rounded border border-slate-500/10 text-gray-400">Remote</span>
                 </div>
-                <h3 class="text-base font-bold transition-colors group-hover:text-orange-500">Independent Graphic Designer</h3>
+                <h3 class="text-base font-bold transition-colors group-hover:text-cyberCyan">Independent Graphic Designer</h3>
                 <p class="text-xs font-mono text-gray-500 mb-3">Freelance</p>
                 <p class="text-xs leading-relaxed max-w-2xl" style="color: var(--text-muted);">
                     Executed diverse brand assets and large-scale visual layouts for corporate and student organizations utilizing Photoshop, Illustrator, and Premiere Pro.
@@ -235,27 +254,15 @@
 
     <section class="py-20 px-4 max-w-3xl mx-auto border-t" style="border-color: var(--card-border);" data-aos="fade-up">
         <div class="mb-10">
-            <h3 class="tech-header text-sm tracking-widest text-gray-400 uppercase">My Favorite Tools</h3>
+            <h3 class="tech-header text-sm tracking-widest text-gray-400 uppercase">Favorite Tool Suite</h3>
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 font-mono text-xs">
-            <div class="p-4 bg-slate-900/10 dark:bg-slate-900/30 border border-gray-800/40 rounded-xl flex items-center gap-3"><i class="fa-solid fa-code text-blue-400"></i> VS Code</div>
-            <div class="p-4 bg-slate-900/10 dark:bg-slate-900/30 border border-gray-800/40 rounded-xl flex items-center gap-3"><i class="fa-brands fa-figma text-purple-400"></i> Figma UI</div>
-            <div class="p-4 bg-slate-900/10 dark:bg-slate-900/30 border border-gray-800/40 rounded-xl flex items-center gap-3"><i class="fa-solid fa-bezier-curve text-orange-400"></i> Illustrator</div>
-            <div class="p-4 bg-slate-900/10 dark:bg-slate-900/30 border border-gray-800/40 rounded-xl flex items-center gap-3"><i class="fa-solid fa-image text-sky-400"></i> Photoshop</div>
-            <div class="p-4 bg-slate-900/10 dark:bg-slate-900/30 border border-gray-800/40 rounded-xl flex items-center gap-3"><i class="fa-brands fa-github"></i> GitHub</div>
-            <div class="p-4 bg-slate-900/10 dark:bg-slate-900/30 border border-gray-800/40 rounded-xl flex items-center gap-3"><i class="fa-solid fa-chart-line text-emerald-400"></i> Power BI</div>
-        </div>
-    </section>
-
-    <section class="py-12 px-4 max-w-3xl mx-auto" data-aos="zoom-in">
-        <div class="p-8 bg-gradient-to-r from-orange-600 to-amber-600 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl shadow-orange-600/10">
-            <div class="text-center md:text-left">
-                <span class="text-[10px] tracking-widest uppercase font-mono bg-white/20 px-2.5 py-1 rounded text-white font-bold">Open to Work</span>
-                <h3 class="tech-header text-xl md:text-2xl font-black text-white mt-3">Got a project? Let's talk.</h3>
-            </div>
-            <div class="flex items-center gap-3 font-mono text-xs">
-                <a href="#contact" class="px-5 py-3 bg-white text-orange-700 font-bold uppercase rounded-xl transition-transform hover:scale-105">Start Project</a>
-            </div>
+            <div class="p-4 glass-card rounded-xl flex items-center gap-3"><i class="fa-solid fa-code text-blue-400"></i> VS Code</div>
+            <div class="p-4 glass-card rounded-xl flex items-center gap-3"><i class="fa-brands fa-figma text-purple-400"></i> Figma UI</div>
+            <div class="p-4 glass-card rounded-xl flex items-center gap-3"><i class="fa-solid fa-bezier-curve text-orange-400"></i> Illustrator</div>
+            <div class="p-4 glass-card rounded-xl flex items-center gap-3"><i class="fa-solid fa-image text-sky-400"></i> Photoshop</div>
+            <div class="p-4 glass-card rounded-xl flex items-center gap-3"><i class="fa-brands fa-github text-slate-400"></i> GitHub Engine</div>
+            <div class="p-4 glass-card rounded-xl flex items-center gap-3"><i class="fa-solid fa-chart-line text-emerald-400"></i> Power BI</div>
         </div>
     </section>
 
@@ -265,123 +272,4 @@
         </div>
 
         <form id="portfolio-form" class="p-6 md:p-8 rounded-2xl border transition-all duration-300 space-y-6 shadow-2xl" style="background: var(--card-bg); border-color: var(--card-border);" data-aos="fade-up" onsubmit="sendToWhatsApp(event)">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="space-y-2">
-                    <label class="text-xs uppercase tracking-wider font-semibold font-mono text-gray-500">Name</label>
-                    <input type="text" id="form-name" required placeholder="Your name" class="w-full px-4 py-3 bg-black/10 dark:bg-black/40 border border-gray-800/40 rounded-xl focus:outline-none focus:border-orange-500 transition-all text-sm font-mono">
-                </div>
-                <div class="space-y-2">
-                    <label class="text-xs uppercase tracking-wider font-semibold font-mono text-gray-500">Email</label>
-                    <input type="email" id="form-email" required placeholder="Your email" class="w-full px-4 py-3 bg-black/10 dark:bg-black/40 border border-gray-800/40 rounded-xl focus:outline-none focus:border-orange-500 transition-all text-sm font-mono">
-                </div>
-            </div>
-            <div class="space-y-2">
-                <label class="text-xs uppercase tracking-wider font-semibold font-mono text-gray-500">Subject</label>
-                <input type="text" id="form-subject" required placeholder="Subject" class="w-full px-4 py-3 bg-black/10 dark:bg-black/40 border border-gray-800/40 rounded-xl focus:outline-none focus:border-orange-500 transition-all text-sm font-mono">
-            </div>
-            <div class="space-y-2">
-                <label class="text-xs uppercase tracking-wider font-semibold font-mono text-gray-500">Message</label>
-                <textarea id="form-message" required rows="5" placeholder="Your message" class="w-full px-4 py-3 bg-black/10 dark:bg-black/40 border border-gray-800/40 rounded-xl focus:outline-none focus:border-orange-500 transition-all text-sm resize-none font-mono"></textarea>
-            </div>
-            
-            <button type="submit" class="w-full py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold text-sm rounded-xl flex justify-center items-center gap-2 hover:scale-[1.01] transition-all shadow-lg shadow-orange-600/20 font-mono">
-                Send Message <i class="fa-solid fa-paper-plane text-xs"></i>
-            </button>
-        </form>
-    </form>
-
-    <footer class="pt-20 pb-12 border-t border-gray-900 bg-slate-950/10 px-4">
-        <div class="max-w-3xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
-            <div class="text-center md:text-left">
-                <h3 class="tech-header text-lg font-black tracking-wider text-orange-500">MACA</h3>
-                <p class="text-xs font-mono text-gray-500 mt-1 max-w-xs">Building scalable web architecture and pixel-perfect digital identities.</p>
-            </div>
-
-            <div class="flex items-center gap-3">
-                <a href="https://github.com/dtechguy01" target="_blank" class="w-10 h-10 rounded-xl bg-slate-900/40 border border-gray-800/40 hover:border-orange-500/40 hover:text-orange-500 flex items-center justify-center text-gray-400 transition-all"><i class="fa-brands fa-github text-sm"></i></a>
-                <a href="https://x.com/dtechguy01" target="_blank" class="w-10 h-10 rounded-xl bg-slate-900/40 border border-gray-800/40 hover:border-orange-500/40 hover:text-orange-500 flex items-center justify-center text-gray-400 transition-all"><i class="fa-brands fa-x-twitter text-sm"></i></a>
-                <a href="https://www.tiktok.com/@d_techguy01" target="_blank" class="w-10 h-10 rounded-xl bg-slate-900/40 border border-gray-800/40 hover:border-orange-500/40 hover:text-orange-500 flex items-center justify-center text-gray-400 transition-all"><i class="fa-brands fa-tiktok text-sm"></i></a>
-                <a href="mailto:beulahiremide@gmail.com" class="w-10 h-10 rounded-xl bg-slate-900/40 border border-gray-800/40 hover:border-orange-500/40 hover:text-orange-500 flex items-center justify-center text-gray-400 transition-all"><i class="fa-regular fa-envelope text-sm"></i></a>
-            </div>
-        </div>
-
-        <div class="max-w-3xl mx-auto border-t border-gray-900/60 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] tracking-widest text-gray-600 font-mono uppercase text-center">
-            <p>© 2026 BEULAH IREMIDE ADEOYE (MACA) ALL RIGHT RESERVED.</p>
-            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-orange-500 flex items-center gap-1.5 transition-colors">
-                Back to Top <i class="fa-solid fa-arrow-up"></i>
-            </button>
-        </div>
-    </footer>
-
-    <div id="success-modal" class="fixed inset-0 z-50 invisible opacity-0 flex justify-center items-center p-4 bg-black/70 backdrop-blur-md transition-all duration-500">
-        <div class="max-w-md w-full p-8 rounded-2xl border border-gray-800 bg-slate-950 text-center scale-75 opacity-0 transition-all duration-500 transform modal-content shadow-2xl font-mono text-white">
-            <div class="w-14 h-14 bg-orange-600 rounded-full flex justify-center items-center mx-auto mb-6 shadow-lg shadow-orange-600/20">
-                <i class="fa-solid fa-check text-white text-xl"></i>
-            </div>
-            <h3 class="tech-header text-base font-bold mb-2">TRANSMISSION COMPLETE</h3>
-            <p class="text-xs text-gray-400 mb-6 leading-relaxed">Your messages has been sent you'll be notified when we sees it or we will get back to you</p>
-            <button onclick="closeSuccessModal()" class="px-6 py-2.5 bg-orange-600 hover:bg-orange-700 text-white text-xs font-bold uppercase rounded-lg tracking-wider transition-colors">Close Console</button>
-        </div>
-    </div>
-
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        lucide.createIcons();
-        AOS.init({ once: true, offset: 100, duration: 800, easing: 'ease-out-cubic' });
-
-        // Dual Theme Logic Engine
-        const toggleBtn = document.getElementById('theme-toggle');
-        const toggleIcon = document.getElementById('theme-icon');
-        const htmlEl = document.documentElement;
-
-        function applyTheme(theme) {
-            if (theme === 'light') {
-                htmlEl.classList.add('light');
-                toggleIcon.className = 'fa-solid fa-sun';
-            } else {
-                htmlEl.classList.remove('light');
-                toggleIcon.className = 'fa-solid fa-moon';
-            }
-            localStorage.setItem('portfolio-theme', theme);
-        }
-
-        const savedTheme = localStorage.getItem('portfolio-theme');
-        const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-
-        applyTheme(savedTheme || (systemPrefersLight ? 'light' : 'dark'));
-        toggleBtn.addEventListener('click', () => applyTheme(htmlEl.classList.contains('light') ? 'dark' : 'light'));
-
-        // WhatsApp Messaging Engine
-        function sendToWhatsApp(e) {
-            e.preventDefault();
-            const name = document.getElementById('form-name').value;
-            const email = document.getElementById('form-email').value;
-            const subject = document.getElementById('form-subject').value;
-            const message = document.getElementById('form-message').value;
-
-            const secureBrief = `*New Portfolio Message*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Subject:* ${subject}%0A*Message:* ${message}`;
-            const whatsappEndpoint = `https://wa.me/2348088009455?text=${secureBrief}`;
-
-            const modal = document.getElementById('success-modal');
-            const content = modal.querySelector('.modal-content');
-            
-            modal.classList.remove('invisible', 'opacity-0');
-            setTimeout(() => {
-                content.classList.remove('scale-75', 'opacity-0');
-                content.classList.add('scale-100', 'opacity-100');
-            }, 50);
-
-            document.getElementById('portfolio-form').reset();
-            setTimeout(() => { window.open(whatsappEndpoint, '_blank'); }, 1200);
-        }
-
-        function closeSuccessModal() {
-            const modal = document.getElementById('success-modal');
-            const content = modal.querySelector('.modal-content');
-            content.classList.remove('scale-100', 'opacity-100');
-            content.classList.add('scale-75', 'opacity-0');
-            setTimeout(() => { modal.add('invisible', 'opacity-0'); }, 400);
-        }
-    </script>
-</body>
+            <div class="grid grid-cols-1 md:grid-
