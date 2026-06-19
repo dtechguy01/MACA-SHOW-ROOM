@@ -3,116 +3,406 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MACA | Random Interaction Center</title>
+    <title>Adeoye Beulah Iremide | Portfolio</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@700;900&swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body { font-family: 'JetBrains Mono', monospace; background-color: #060913; color: #f8fafc; }
-        .tech-header { font-family: 'Orbitron', sans-serif; tracking-widest; }
-        .glass-panel { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.06); }
-    </style>
-</head>
-<body class="py-12 px-4 max-w-3xl mx-auto">
-
-    <div class="mb-12">
-        <a href="index.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#00F2FE] to-[#4FACFE]">
-            ← Return to Core Portfolio
-        </a>
-    </div>
-
-    <header class="border-b border-gray-800 pb-6 mb-12">
-        <h1 class="tech-header text-xl md:text-3xl font-black uppercase text-white">MACA MULTI-SOURCE RADAR</h1>
-        <p class="text-xs text-gray-500 mt-2">Randomized Knowledge System, Tributes, & Student Skill Blueprints</p>
-    </header>
-
-    <div class="space-y-12">
-        <section class="glass-panel p-6 rounded-2xl border-l-2 border-[#00F2FE]">
-            <h2 class="tech-header text-sm font-bold text-white mb-2">DYNAMIC INTELLIGENCE ROUTER</h2>
-            <p class="text-xs text-gray-400 leading-relaxed mb-6">Fire the handshake module below to cycle randomly between critical tech realities, student development tracks, and foundational memory matrices.</p>
-            
-            <button onclick="fireRandomRadar()" class="w-full py-4 bg-gradient-to-r from-[#00F2FE] to-[#4FACFE] text-white font-bold text-xs uppercase rounded-xl tracking-wider hover:opacity-90 active:scale-[0.99] transition-all">
-                Execute Random Handshake <i class="fa-solid fa-shuffle ml-1.5 text-[10px]"></i>
-            </button>
-
-            <div id="radar-display" class="mt-6 p-4 bg-black/40 rounded-xl border border-gray-800 hidden animate-fade-in">
-                <div id="radar-badge" class="inline-block text-[9px] uppercase font-bold tracking-widest px-2 py-0.5 rounded mb-2 text-white"></div>
-                <p id="radar-text" class="text-xs leading-relaxed font-mono text-slate-200"></p>
-            </div>
-        </section>
-
-        <section class="glass-panel p-6 rounded-2xl">
-            <h2 class="tech-header text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00F2FE] to-[#4FACFE] mb-6">HIGH-INCOME LEARNING REPOS</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="p-4 bg-black/20 border border-gray-800 rounded-xl space-y-3">
-                    <span class="text-xs font-bold text-white block">Full-Stack Development</span>
-                    <p class="text-[11px] text-gray-400">Master production grade server routing and backend APIs via PHP, Node.js, and SQL infrastructure.</p>
-                    <a href="https://www.youtube.com/results?search_query=full+stack+web+development+course" target="_blank" class="block text-center py-2 bg-slate-900 border border-gray-800 text-[10px] uppercase font-bold text-gray-300 rounded-lg hover:border-cyan-500 transition-colors">
-                        Access Course Video <i class="fa-brands fa-youtube text-red-500 ml-1"></i>
-                    </a>
-                </div>
-                <div class="p-4 bg-black/20 border border-gray-800 rounded-xl space-y-3">
-                    <span class="text-xs font-bold text-white block">Data Science Modeling</span>
-                    <p class="text-[11px] text-gray-400">Deep dive into data cleaning parameters, predictive models with Python libraries, and Power BI visualization suites.</p>
-                    <a href="https://www.youtube.com/results?search_query=data+science+full+course" target="_blank" class="block text-center py-2 bg-slate-900 border border-gray-800 text-[10px] uppercase font-bold text-gray-300 rounded-lg hover:border-emerald-500 transition-colors">
-                        Access Course Video <i class="fa-brands fa-youtube text-red-500 ml-1"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <footer class="mt-20 border-t border-gray-800 pt-6 text-center text-[10px] font-mono text-gray-600 uppercase tracking-widest">
-        <p>© 2026 ADEOYE BEULAH IREMIDE (MACA). DATA COMPILATION PIPELINE SECURED.</p>
-    </footer>
 
     <script>
-        // Mixed Dynamic Array: Tech facts, Student guidance, and your Mom's tribute
-        const radarMatrix = [
-            {
-                type: "tribute",
-                bg: "bg-rose-950/40 border-rose-900/50",
-                text: ">> connection secure: \"I miss you mom keep resting... your values, your strength, and your inspiration remain safe and alive within every block of code I design.\""
-            },
-            {
-                type: "tech fact",
-                bg: "bg-cyan-950/40 border-cyan-900/50",
-                text: ">> intelligence log: Databases power the modern world. Sharding and optimization of relational SQL infrastructure can cut application enterprise costs down by over 40% globally."
-            },
-            {
-                type: "student tip",
-                bg: "bg-emerald-950/40 border-emerald-900/50",
-                text: ">> strategy path: As a student in Nigeria, learning Git version control, maintaining active GitHub pipelines, and packaging your work as independent landing micro-products sets you above 90% of developers."
-            },
-            {
-                type: "tech fact",
-                bg: "bg-purple-950/40 border-purple-900/50",
-                text: ">> intelligence log: User Interface Design systems inside Figma are not purely artistic layout grids; they represent product logic maps that dictate full software execution velocities."
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyberCyan: '#00F2FE',
+                        cyberBlue: '#4FACFE',
+                    }
+                }
             }
-        ];
+        }
+    </script>
 
-        function fireRandomRadar() {
-            const display = document.getElementById('radar-display');
-            const badge = document.getElementById('radar-badge');
-            const text = document.getElementById('radar-text');
+    <style>
+        body { 
+            font-family: 'JetBrains Mono', monospace; 
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .tech-header { font-family: 'Orbitron', sans-serif; tracking-widest; }
+
+        /* Solid Color Variable System - No Hidden Overlaps */
+        :root {
+            --bg-color: #060913;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --card-bg: rgba(15, 23, 42, 0.6);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --input-bg: rgba(0, 0, 0, 0.4);
+            --input-text: #ffffff;
+        }
+        html.light {
+            --bg-color: #f1f5f9;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --card-bg: #ffffff;
+            --card-border: rgba(15, 23, 42, 0.12);
+            --input-bg: #ffffff;
+            --input-text: #0f172a;
+        }
+
+        body { background-color: var(--bg-color); color: var(--text-main); overflow-x: hidden; }
+
+        /* Liquid Button Hover System */
+        .liquid-btn {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #00F2FE, #4FACFE);
+            transition: all 0.3s ease;
+        }
+        .liquid-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
+            animation: liquidMesh 6s infinite alternate linear;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .liquid-btn:hover::before { opacity: 1; }
+        @keyframes liquidMesh {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Marquee Core Infinite Loop */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-container { display: flex; width: max-content; animation: marquee 25s linear infinite; }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-2xl rounded-full px-6 py-3.5 flex justify-between items-center shadow-2xl transition-all" style="background: var(--card-bg); border: 1px solid var(--card-border);">
+        <a href="#" class="tech-header text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan to-cyberBlue">MACA</a>
+        <div class="flex items-center gap-5 text-xs md:text-sm font-bold">
+            <a href="#about" class="transition-colors hover:text-cyberCyan" style="color: var(--text-main);">About</a>
+            <a href="#experience" class="transition-colors hover:text-cyberCyan" style="color: var(--text-main);">Experience</a>
+            <a href="#contact" class="transition-colors hover:text-cyberCyan" style="color: var(--text-main);">Contact</a>
+
+            <button id="theme-toggle" type="button" class="p-2 rounded-xl border transition-all duration-300 hover:bg-cyberCyan/10 text-cyberCyan" style="border-color: var(--card-border);">
+                <i id="theme-icon" class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section id="about" class="pt-36 pb-24 px-4 max-w-5xl mx-auto flex flex-col items-center text-center relative z-20">
+        <div class="w-40 h-40 md:w-48 md:h-48 mb-8 rounded-2xl p-2 flex items-center justify-center shadow-2xl transition-all" style="background: var(--card-bg); border: 1px solid var(--card-border);">
+            <img src="maca-avatar.png" alt="MACA System Logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+
+        <div class="space-y-4 max-w-3xl">
+            <h1 class="tech-header text-4xl md:text-6xl font-black tracking-tight" style="color: var(--text-main);">
+                Adeoye Beulah <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan to-cyberBlue">Iremide</span>
+            </h1>
+            <p class="text-sm md:text-base font-medium max-w-2xl mx-auto leading-relaxed" style="color: var(--text-muted);">
+                Multidisciplinary Tech Professional specializing in 
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan to-cyberBlue font-bold">Web Development</span>, 
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan to-cyberBlue font-bold">UI/UX Design</span>, 
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan to-cyberBlue font-bold">Graphic Design</span>, and 
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan to-cyberBlue font-bold">Data Analytics</span>.
+            </p>
+            <div class="flex items-center justify-center gap-2 text-xs font-mono" style="color: var(--text-muted);">
+                <i class="fa-solid fa-location-dot text-cyberCyan"></i> Ekiti, Nigeria
+            </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-4 mt-10">
+            <a href="my-cv.pdf" download="Adeoye_Beulah_CV.pdf" class="liquid-btn inline-flex items-center gap-2 px-6 py-3 text-white font-bold text-sm rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-cyan-500/20">
+                Download Resume <i class="fa-solid fa-arrow-down text-xs"></i>
+            </a>
+            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-transparent border rounded-xl font-bold text-sm transition-all duration-300 hover:scale-105 hover:border-cyberCyan" style="border-color: var(--card-border); color: var(--text-main);">
+                Start a Project <i class="fa-solid fa-arrow-right text-xs text-cyberCyan"></i>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl mt-24 pt-12 border-t" style="border-color: var(--card-border);">
+            <div class="flex flex-col items-center space-y-1">
+                <span class="tech-header text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan to-cyberBlue">5.0+</span>
+                <span class="text-[10px] uppercase tracking-widest font-bold font-mono" style="color: var(--text-muted);">Years Experience</span>
+            </div>
+            <div class="flex flex-col items-center space-y-1">
+                <span class="tech-header text-4xl md:text-5xl font-black" style="color: var(--text-main);">30+</span>
+                <span class="text-[10px] uppercase tracking-widest font-bold font-mono" style="color: var(--text-muted);">Solutions Deployed</span>
+            </div>
+            <div class="flex flex-col items-center space-y-1">
+                <span class="tech-header text-4xl md:text-5xl font-black" style="color: var(--text-main);">10k+</span>
+                <span class="text-[10px] uppercase tracking-widest font-bold font-mono" style="color: var(--text-muted);">System Engagements</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="w-full overflow-hidden relative py-6 border-b border-t border-slate-500/10" style="background: rgba(15, 23, 42, 0.03);">
+        <div class="marquee-container gap-4">
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-mono transition-all" style="background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-main);"><i class="fa-brands fa-php text-blue-400"></i> PHP</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-mono transition-all" style="background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-main);"><i class="fa-brands fa-react text-cyan-400"></i> React.js</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-mono transition-all" style="background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-main);"><i class="fa-brands fa-node-js text-emerald-400"></i> Node.js</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-mono transition-all" style="background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-main);"><i class="fa-brands fa-python text-amber-400"></i> Python</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-mono transition-all" style="background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-main);"><i class="fa-solid fa-database text-indigo-400"></i> MySQL DB</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-mono transition-all" style="background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-main);"><i class="fa-brands fa-figma text-purple-400"></i> Figma UI</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-mono transition-all" style="background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-main);"><i class="fa-solid fa-bezier-curve text-orange-400"></i> Illustrator</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-mono transition-all" style="background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-main);"><i class="fa-solid fa-chart-bar text-rose-400"></i> Power BI</span>
             
-            // Generate standard randomization sequences
-            const index = Math.floor(Math.random() * radarMatrix.length);
-            const selection = radarMatrix[index];
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-mono transition-all" style="background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-main);"><i class="fa-brands fa-php text-blue-400"></i> PHP</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-mono transition-all" style="background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-main);"><i class="fa-brands fa-react text-cyan-400"></i> React.js</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-mono transition-all" style="background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-main);"><i class="fa-brands fa-node-js text-emerald-400"></i> Node.js</span>
+            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-mono transition-all" style="background: var(--card-bg); border: 1px solid var(--card-border); color: var(--text-main);"><i class="fa-brands fa-python text-amber-400"></i> Python</span>
+        </div>
+    </div>
+
+    <section id="experience" class="py-24 px-4 max-w-3xl mx-auto">
+        <div class="mb-16">
+            <h2 class="tech-header text-xl md:text-2xl font-black tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan to-cyberBlue">Work Experience</h2>
+            <p class="text-xs font-mono text-gray-500 mt-2">Professional tracking nodes for data pipelines and brand architectures.</p>
+        </div>
+
+        <div class="relative border-l ml-4 space-y-12 border-slate-500/20">
+            <div class="relative pl-8 group">
+                <div class="absolute -left-[6px] top-1.5 w-3 h-3 rounded-full bg-cyberCyan ring-4 ring-cyberCyan/20"></div>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <span class="text-xs font-mono font-bold text-cyberCyan">2024 — 2025</span>
+                    <span class="text-[10px] uppercase font-mono tracking-wider px-2.5 py-1 rounded transition-all text-gray-400" style="background: var(--card-bg); border: 1px solid var(--card-border);">Remote</span>
+                </div>
+                <h3 class="text-base font-bold transition-colors group-hover:text-cyberCyan" style="color: var(--text-main);">Data Analyst</h3>
+                <p class="text-xs font-mono text-gray-500 mb-3">Datahub Analytics</p>
+                <p class="text-xs leading-relaxed max-w-2xl" style="color: var(--text-muted);">
+                    Analyzed complex datasets to identify trends and provide actionable insights, utilizing robust data visualization tools to support informed business decision-making. Deployed predictive models using Python, SQL, Power BI, and Excel.
+                </p>
+            </div>
+
+            <div class="relative pl-8 group">
+                <div class="absolute -left-[6px] top-1.5 w-3 h-3 rounded-full bg-slate-500"></div>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <span class="text-xs font-mono font-bold text-gray-400">2021 — 2024</span>
+                    <span class="text-[10px] uppercase font-mono tracking-wider px-2.5 py-1 rounded transition-all text-gray-400" style="background: var(--card-bg); border: 1px solid var(--card-border);">Osun state</span>
+                </div>
+                <h3 class="text-base font-bold transition-colors group-hover:text-cyberCyan" style="color: var(--text-main);">Full-Stack Web Developer</h3>
+                <p class="text-xs font-mono text-gray-500 mb-3">Clik Cafe Solutions</p>
+                <p class="text-xs leading-relaxed max-w-2xl" style="color: var(--text-muted);">
+                    Developed and deployed custom web applications, ensuring high performance across all browsers and devices while maintaining clean, scalable codebase logic. Constructed modules via VS Code, React, Node.js, and SQL.
+                </p>
+            </div>
+
+            <div class="relative pl-8 group">
+                <div class="absolute -left-[6px] top-1.5 w-3 h-3 rounded-full bg-slate-500"></div>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <span class="text-xs font-mono font-bold text-gray-400">2021 — 2023</span>
+                    <span class="text-[10px] uppercase font-mono tracking-wider px-2.5 py-1 rounded transition-all text-gray-400" style="background: var(--card-bg); border: 1px solid var(--card-border);">Osun state</span>
+                </div>
+                <h3 class="text-base font-bold transition-colors group-hover:text-cyberCyan" style="color: var(--text-main);">UI/UX Designer</h3>
+                <p class="text-xs font-mono text-gray-500 mb-3">Click Cafe solutions</p>
+                <p class="text-xs leading-relaxed max-w-2xl" style="color: var(--text-muted);">
+                    Designed user-centric interfaces and high-fidelity prototypes, focusing on improving user journey flows and visual consistency for digital products using Figma and Adobe XD.
+                </p>
+            </div>
+
+            <div class="relative pl-8 group">
+                <div class="absolute -left-[6px] top-1.5 w-3 h-3 rounded-full bg-slate-500"></div>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <span class="text-xs font-mono font-bold text-gray-400">2019 — Present</span>
+                    <span class="text-[10px] uppercase font-mono tracking-wider px-2.5 py-1 rounded transition-all text-gray-400" style="background: var(--card-bg); border: 1px solid var(--card-border);">Remote</span>
+                </div>
+                <h3 class="text-base font-bold transition-colors group-hover:text-cyberCyan" style="color: var(--text-main);">Independent Graphic Designer</h3>
+                <p class="text-xs font-mono text-gray-500 mb-3">Freelance</p>
+                <p class="text-xs leading-relaxed max-w-2xl" style="color: var(--text-muted);">
+                    Executed diverse brand assets and large-scale visual layouts for corporate and student organizations utilizing Photoshop, Illustrator, and Premiere Pro.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-4 max-w-3xl mx-auto border-t" style="border-color: var(--card-border);">
+        <div class="mb-10">
+            <h3 class="tech-header text-sm tracking-widest text-gray-400 uppercase">Favorite Tool Suite</h3>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 font-mono text-xs">
+            <div class="p-4 glass-card rounded-xl flex items-center gap-3"><i class="fa-solid fa-code text-blue-400"></i> VS Code</div>
+            <div class="p-4 glass-card rounded-xl flex items-center gap-3"><i class="fa-brands fa-figma text-purple-400"></i> Figma UI</div>
+            <div class="p-4 glass-card rounded-xl flex items-center gap-3"><i class="fa-solid fa-bezier-curve text-orange-400"></i> Illustrator</div>
+            <div class="p-4 glass-card rounded-xl flex items-center gap-3"><i class="fa-solid fa-image text-sky-400"></i> Photoshop</div>
+            <div class="p-4 glass-card rounded-xl flex items-center gap-3"><i class="fa-brands fa-github"></i> GitHub Engine</div>
+            <div class="p-4 glass-card rounded-xl flex items-center gap-3"><i class="fa-solid fa-chart-line text-emerald-400"></i> Power BI</div>
+        </div>
+    </section>
+
+    <section class="py-12 px-4 max-w-3xl mx-auto">
+        <div class="p-8 bg-gradient-to-r from-cyberCyan to-cyberBlue rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl shadow-cyan-500/10">
+            <div class="text-center md:text-left">
+                <span class="text-[10px] tracking-widest uppercase font-mono bg-white/20 px-2.5 py-1 rounded text-white font-bold">Open to Work</span>
+                <h3 class="tech-header text-xl md:text-2xl font-black text-white mt-3">Got a project? Let's talk.</h3>
+            </div>
+            <div class="flex items-center gap-3 font-mono text-xs">
+                <a href="#contact" class="px-5 py-3 bg-white text-slate-900 font-bold uppercase rounded-xl transition-transform hover:scale-105">Start Project</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 px-4 max-w-3xl mx-auto border-t" style="border-color: var(--card-border);">
+        <div class="text-center mb-12">
+            <h2 class="tech-header text-xl font-black mb-3 tracking-widest" style="color: var(--text-main);">SEND A MESSAGE</h2>
+        </div>
+
+        <form id="portfolio-form" class="p-6 md:p-8 rounded-2xl border space-y-6 shadow-2xl transition-all" style="background: var(--card-bg); border-color: var(--card-border);" onsubmit="sendToWhatsApp(event)">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                    <label class="text-xs uppercase tracking-wider font-semibold font-mono text-gray-400">Name</label>
+                    <input type="text" id="form-name" required placeholder="Your name" class="w-full px-4 py-3 border border-slate-500/20 rounded-xl focus:outline-none focus:border-cyberCyan transition-all text-sm font-mono" style="background: var(--input-bg); color: var(--input-text);">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs uppercase tracking-wider font-semibold font-mono text-gray-400">Email</label>
+                    <input type="email" id="form-email" required placeholder="Your email" class="w-full px-4 py-3 border border-slate-500/20 rounded-xl focus:outline-none focus:border-cyberCyan transition-all text-sm font-mono" style="background: var(--input-bg); color: var(--input-text);">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <label class="text-xs uppercase tracking-wider font-semibold font-mono text-gray-400">Subject</label>
+                <input type="text" id="form-subject" required placeholder="Subject" class="w-full px-4 py-3 border border-slate-500/20 rounded-xl focus:outline-none focus:border-cyberCyan transition-all text-sm font-mono" style="background: var(--input-bg); color: var(--input-text);">
+            </div>
+            <div class="space-y-2">
+                <label class="text-xs uppercase tracking-wider font-semibold font-mono text-gray-400">Message</label>
+                <textarea id="form-message" required rows="5" placeholder="Your message" class="w-full px-4 py-3 border border-slate-500/20 rounded-xl focus:outline-none focus:border-cyberCyan transition-all text-sm resize-none font-mono" style="background: var(--input-bg); color: var(--input-text);"></textarea>
+            </div>
             
-            // Process rendering
-            display.className = `mt-6 p-4 rounded-xl border flex flex-col ${selection.bg}`;
-            badge.innerText = selection.type;
+            <button type="submit" class="liquid-btn w-full py-4 text-white font-bold text-sm rounded-xl flex justify-center items-center gap-2 hover:scale-[1.01] transition-all shadow-lg shadow-cyan-500/20 font-mono">
+                Send Message <i class="fa-solid fa-paper-plane text-xs"></i>
+            </button>
+        </form>
+    </section>
+
+    <footer class="pt-24 pb-12 border-t bg-slate-950/10 px-4" style="border-color: var(--card-border);">
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-10 mb-16 text-center md:text-left">
+            <div class="md:col-span-2 space-y-3">
+                <h3 class="tech-header text-xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-cyberCyan to-cyberBlue">MACA</h3>
+                <p class="text-xs font-mono max-w-xs leading-relaxed" style="color: var(--text-muted);">Nigeria's best full-stack web developer. Building fast, scalable, and SEO-optimized web applications.</p>
+                <div class="flex items-center justify-center md:justify-start gap-2 text-xs font-mono" style="color: var(--text-muted);">
+                    <i class="fa-solid fa-location-dot text-cyberCyan"></i> Ekiti State, Nigeria
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-xs uppercase tracking-widest font-bold text-gray-400 font-mono">General</h4>
+                <div class="flex flex-col space-y-2.5 text-xs font-mono mt-4" style="color: var(--text-muted);">
+                    <a href="#about" class="hover:text-cyberCyan transition-colors">Home</a>
+                    <a href="#about" class="hover:text-cyberCyan transition-colors">About Me</a>
+                    <a href="#experience" class="hover:text-cyberCyan transition-colors">Projects</a>
+                    <a href="#contact" class="hover:text-cyberCyan transition-colors">Blog</a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-xs uppercase tracking-widest font-bold text-gray-400 font-mono">Work</h4>
+                <div class="flex flex-col space-y-2.5 text-xs font-mono mt-4" style="color: var(--text-muted);">
+                    <a href="#" class="hover:text-cyberCyan transition-colors">Products</a>
+                    <a href="#" class="hover:text-cyberCyan transition-colors">Hosting Guide</a>
+                    <a href="#contact" class="hover:text-cyberCyan transition-colors">Hire Me</a>
+                    <a href="#experience" class="hover:text-cyberCyan transition-colors">Experience</a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-xs uppercase tracking-widest font-bold text-gray-400 font-mono">Legal</h4>
+                <div class="flex flex-col space-y-2.5 text-xs font-mono mt-4" style="color: var(--text-muted);">
+                    <a href="#" class="hover:text-cyberCyan transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-cyberCyan transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-cyberCyan transition-colors">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto flex items-center justify-center gap-4 mb-8">
+            <a href="https://github.com/dtechguy01" target="_blank" class="w-10 h-10 rounded-xl border hover:border-cyberCyan/40 hover:text-cyberCyan flex items-center justify-center text-gray-400 transition-all" style="background: var(--card-bg); border-color: var(--card-border);"><i class="fa-brands fa-github text-sm"></i></a>
+            <a href="https://x.com/dtechguy01" target="_blank" class="w-10 h-10 rounded-xl border hover:border-cyberCyan/40 hover:text-cyberCyan flex items-center justify-center text-gray-400 transition-all" style="background: var(--card-bg); border-color: var(--card-border);"><i class="fa-brands fa-x-twitter text-sm"></i></a>
+            <a href="https://www.tiktok.com/@d_techguy01" target="_blank" class="w-10 h-10 rounded-xl border hover:border-cyberCyan/40 hover:text-cyberCyan flex items-center justify-center text-gray-400 transition-all" style="background: var(--card-bg); border-color: var(--card-border);"><i class="fa-brands fa-tiktok text-sm"></i></a>
+            <a href="mailto:beulahiremide@gmail.com" class="w-10 h-10 rounded-xl border hover:border-cyberCyan/40 hover:text-cyberCyan flex items-center justify-center text-gray-400 transition-all" style="background: var(--card-bg); border-color: var(--card-border);"><i class="fa-regular fa-envelope text-sm"></i></a>
+        </div>
+
+        <div class="max-w-4xl mx-auto border-t pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] tracking-widest text-gray-500 font-mono uppercase text-center" style="border-color: var(--card-border);">
+            <div class="space-y-1">
+                <p>© 2026 BEULAH IREMIDE ADEOYE (MACA) ALL RIGHT RESERVED.</p>
+                <p class="text-[9px] lowercase tracking-normal text-gray-400 italic font-sans normal-case">I miss you mom keep resting</p>
+            </div>
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="px-4 py-2 border hover:border-cyberCyan/40 hover:text-cyberCyan flex items-center gap-2 transition-all rounded-xl shadow-md" style="background: var(--card-bg); border-color: var(--card-border);">
+                Back to Top <i class="fa-solid fa-arrow-up"></i>
+            </button>
+        </div>
+    </footer>
+
+    <div id="success-modal" class="fixed inset-0 z-50 invisible opacity-0 flex justify-center items-center p-4 bg-black/80 backdrop-blur-md transition-all duration-500">
+        <div class="max-w-md w-full p-8 rounded-2xl border border-slate-800 bg-slate-950 text-center scale-75 opacity-0 transition-all duration-500 transform modal-content shadow-2xl font-mono text-white">
+            <div class="w-14 h-14 bg-gradient-to-r from-cyberCyan to-cyberBlue rounded-full flex justify-center items-center mx-auto mb-6 shadow-lg shadow-cyan-400/20">
+                <i class="fa-solid fa-check text-white text-xl"></i>
+            </div>
+            <h3 class="tech-header text-base font-bold mb-2">TRANSMISSION COMPLETE</h3>
+            <p class="text-xs text-gray-400 mb-6 leading-relaxed">Your messages has been sent you'll be notified when we sees it or we will get back to you</p>
+            <button onclick="closeSuccessModal()" class="liquid-btn px-6 py-2.5 text-white text-xs font-bold uppercase rounded-lg tracking-wider transition-colors">Close Console</button>
+        </div>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const toggleIcon = document.getElementById('theme-icon');
+        const htmlEl = document.documentElement;
+
+        function applyTheme(theme) {
+            if (theme === 'light') {
+                htmlEl.classList.add('light');
+                toggleIcon.className = 'fa-solid fa-sun';
+            } else {
+                htmlEl.classList.remove('light');
+                toggleIcon.className = 'fa-solid fa-moon';
+            }
+            localStorage.setItem('portfolio-theme', theme);
+        }
+
+        const savedTheme = localStorage.getItem('portfolio-theme');
+        const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+        applyTheme(savedTheme || (systemPrefersLight ? 'light' : 'dark'));
+        toggleBtn.addEventListener('click', () => applyTheme(htmlEl.classList.contains('light') ? 'dark' : 'light'));
+
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            const name = document.getElementById('form-name').value;
+            const email = document.getElementById('form-email').value;
+            const subject = document.getElementById('form-subject').value;
+            const message = document.getElementById('form-message').value;
+
+            const secureBrief = `*New Portfolio Message*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Subject:* ${subject}%0A*Message:* ${message}`;
+            const whatsappEndpoint = `https://wa.me/2348088009455?text=${secureBrief}`;
+
+            const modal = document.getElementById('success-modal');
+            const content = modal.querySelector('.modal-content');
             
-            // Color map context tags dynamically
-            if (selection.type === 'tribute') badge.className = "inline-block text-[9px] uppercase font-bold tracking-widest px-2 py-0.5 rounded mb-2 bg-rose-600 text-white w-max";
-            if (selection.type === 'tech fact') badge.className = "inline-block text-[9px] uppercase font-bold tracking-widest px-2 py-0.5 rounded mb-2 bg-cyan-600 text-white w-max";
-            if (selection.type === 'student tip') badge.className = "inline-block text-[9px] uppercase font-bold tracking-widest px-2 py-0.5 rounded mb-2 bg-emerald-600 text-white w-max";
-            
-            text.innerText = selection.text;
-            display.classList.remove('hidden');
+            modal.classList.remove('invisible', 'opacity-0');
+            setTimeout(() => {
+                content.classList.remove('scale-75', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 50);
+
+            document.getElementById('portfolio-form').reset();
+            setTimeout(() => { window.open(whatsappEndpoint, '_blank'); }, 1200);
+        }
+
+        function closeSuccessModal() {
+            const modal = document.getElementById('success-modal');
+            const content = modal.querySelector('.modal-content');
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-75', 'opacity-0');
+            setTimeout(() => { modal.classList.add('invisible', 'opacity-0'); }, 400);
         }
     </script>
 </body>
