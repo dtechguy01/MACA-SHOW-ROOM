@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Editor Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Smooth scrolling behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom styling for the sleek phone frame */
+        .phone-mockup {
+            position: relative;
+            width: 280px;
+            height: 570px;
+            background: #111;
+            border: 12px solid #222;
+            border-radius: 36px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="bg-[#f9f9f9] text-[#111] font-sans overflow-x-hidden">
+
+    <section class="min-h-screen flex flex-col md:flex-row items-center justify-between px-8 max-w-6xl mx-auto py-12 gap-12">
+        
+        <div class="flex-1 space-y-6" data-aos="fade-right" data-aos-duration="1000">
+            <div class="inline-block bg-blue-100 text-blue-600 text-xs font-semibold px-3 py-1 rounded-full">
+                🔥 3 Spots Available
+            </div>
+            <h1 class="text-5xl md:text-6xl font-black tracking-tight leading-none">
+                Raw footage in.<br>
+                <span class="text-blue-600">Viral content</span> out.
+            </h1>
+            <p class="text-gray-500 text-lg max-w-md">
+                Short-form videos that grab attention fast and keep your audience watching till the very last second.
+            </p>
+            <div>
+                <a href="#work" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-3 rounded-full transition shadow-lg shadow-blue-200">
+                    View work &rarr;
+                </a>
+            </div>
+        </div>
+
+        <div class="flex-1 flex justify-center" data-aos="fade-left" data-aos-duration="1000">
+            <div class="phone-mockup">
+                <video class="phone-screen" autoplay loop muted playsinline>
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-man-holding-a-smartphone-in-his-hand-40544-large.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="bg-white py-20 px-8 border-t border-gray-100">
+        <div class="max-w-6xl mx-auto">
+            
+            <div class="mb-12" data-aos="fade-up">
+                <span class="text-sm font-bold text-gray-400 uppercase tracking-widest">Portfolio</span>
+                <h2 class="text-3xl font-bold mt-1">Selected Edits</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="group cursor-pointer space-y-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="overflow-hidden rounded-2xl bg-gray-100 aspect-video relative">
+                        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=600" alt="Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-bold text-lg group-hover:text-blue-600 transition">Advanced Features in Framer</h3>
+                            <p class="text-gray-400 text-sm">Talking Head / Tutorial</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group cursor-pointer space-y-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="overflow-hidden rounded-2xl bg-gray-100 aspect-video relative">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=600" alt="Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-bold text-lg group-hover:text-blue-600 transition">30 Days of Tech Challenge</h3>
+                            <p class="text-gray-400 text-sm">Social Media Edit</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group cursor-pointer space-y-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="overflow-hidden rounded-2xl bg-gray-100 aspect-video relative">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=600" alt="Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-bold text-lg group-hover:text-blue-600 transition">Inside the Grind</h3>
+                            <p class="text-gray-400 text-sm">Brand & Business Story</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true, // Animation happens only once while scrolling down
+        });
+    </script>
+</body>
+</html>
